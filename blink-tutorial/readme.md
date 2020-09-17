@@ -1,4 +1,4 @@
-# Blink tutorial for totally newbees to Quartus
+# Blink tutorial for totally newbees to Quartus and Chameleon96
 ## Prerequisites
 * [Chameleon96 board](https://www.96boards.org/product/chameleon96/)
 * [Quartus lite sofware](https://fpgasoftware.intel.com/?edition=lite)
