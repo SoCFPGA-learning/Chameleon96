@@ -42,7 +42,7 @@ For board detection I had to add following udev rules:
 
 * Open the programmer (Tools menu > Programmer)
 
-Now a blue led in the board should be on indicating the programming usb blaster cable is connected.
+Now a blue led in the board should be on indicating the programming usb blaster cable is connected and ready to go.
 
 * Hardware Setup... > Hardware Settings
 
