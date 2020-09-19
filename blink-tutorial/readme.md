@@ -12,8 +12,8 @@ This tutorial has been made with this software configuration:
 For board detection I had to add following udev rules:
 
 sudo nano /etc/udev/rules.d/81.fpga-altera.rules
-
-  '# Intel FPGA Download Cable II  
+  
+ `# Intel FPGA Download Cable II  
   SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"  
   SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
   `
