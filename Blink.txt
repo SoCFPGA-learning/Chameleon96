@@ -1,0 +1,108 @@
+Content-Type: text/x-zim-wiki
+Wiki-Format: zim 0.4
+Creation-Date: 2020-10-10T23:38:49+02:00
+
+====== Blink example - the messy way ======
+
+
+**Prerequisites**
+* Chameleon96 board
+* Quartus lite sofware
+
+**Considerations**
+This tutorial has been made with this software setup:
+* OS Ubuntu 20.04
+* Quartus lite 20.1
+
+**Sources of information**
+* [[https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be|My_First_HPS.pdf]]
+
+
+===== Launch Quartus app =====
+
+File > New project wizard
+	Next, folder & name (blink), empty project, Next, Next, 5CSEBA6U19I7, Next, Finish
+
+File > New > Block Diagram/Schematic File 
+File > Save as >  Blink.bdf
+
+File > New > Qsys System file
+
+===== Opens Platform designer (Qsys) =====
+
+System contents > select clk_0 > right click > remove
+IP catalog > search processor > ArriaV/Cyclone V HPS > Add
+
+ArriaV/Cyclone V HPS configuration window 
+	FPGA interfaces > uncheck Enable MPU ...
+	AXI Bridges > all 3 check Unused
+	
+	FPGA-to-HPS SDRAM Interface
+	remove f2h_sdram0
+	
+	HPS Clocks
+	HPS-to-FPGA User Clocks
+	check Enable HPS-to-FPGA user 0 clock
+Finish to close window
+
+System contents > select h2f_user0_clock >  double click export  
+Note name used (by default hps_0_h2f_user0_clock)
+
+Menu File > Save as >  blinkqsys.sys
+Menu Generate > Generate HDL > 
+	check create bsf 
+	output directory path > ../Blink/Qsys
+	Generate > Close
+close Platform designer
+
+Due to errors of quartus not finding files I decided to copy all important files to root of project folder
+Copy file [[/Blink/Qsys/synthesis/blinkqsys.qip]]   to  [[/Blink/blinkqsys.qip]]
+
+===== Quartus app =====
+File > New > Verilog HDL File 
+  xxxxxxxxxxxxxx   VERILOG CODE xxxxxxxxxxxxx
+
+  xxxxxxxxxxxxxx   VERILOG CODE xxxxxxxxxxxxx
+
+Menu File > Save as >  simple_counter.v
+
+File > Create/Update > Create Symbol Files for Current File
+
+Menu Project > Add/Remove files in project  > Add all
+
+In  Block editor window (Blink.bdf)  
+
+Symbol icon >  lIbraries > Project/Qsys/blink_qsys
+
+Symbol icon > lIbraries > Project/simple_counter
+
+Insert output pin > doble click on pin > pin name > PGA_2V5_RF_LEDS_LED2_PIN_Y20
+
+
+__falta counter__
+
+
+
+Join with wire hps_0_h2f_user0_clock_clk  →   clk     LED  → PGA_2V5_RF_LEDS_LED2_PIN_Y20
+
+
+Before making pin assignments, perform the following steps:
+1. Choose Processing > Start > Start Analysis & Elaboration in preparation for assigning pin locations.
+2. Click OK in the message window that appears after analysis and elaboration completes.
+
+
+Assignments > Pin Planner
+	PGA_2V5_RF_LEDS_LED2_PIN_Y20    fpga pin location   Y20
+File > close
+
+Tools > TimeQuest Timing Analyzer
+
+Processing > Start compilation
+
+Tools > Programmer
+
+
+
+
+
+
