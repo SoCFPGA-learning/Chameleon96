@@ -2,6 +2,7 @@
 by @somhic
 
 **Objective** 
+
 Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
@@ -32,9 +33,9 @@ Next > choose folder and project name (e.g. blink), Next  > empty project, Next 
 type 5CSEBA6U19I7  in name filter, Next > Next > Finish
 
 File > New > Block Diagram/Schematic File 
- 
+
 File > Save as >  Blink.bdf
- 
+
 File > New > Qsys System file		this opens Platform designer
 
 
@@ -85,7 +86,7 @@ Quartus app
 File > New > Verilog HDL File 
 
 Paste following content:  
- 
+
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,
