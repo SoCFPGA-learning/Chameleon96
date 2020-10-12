@@ -1,5 +1,9 @@
-# Blink example
+# Blink from scratch in Chameleon96
 by @somhic
+
+**Objective** 
+Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
+The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
 **Prerequisites**
 
@@ -24,7 +28,7 @@ Launch Quartus app
 ------------------
 
 File > New project wizard
-Next > choose folder and project name (e.g. blink), Next  > empty project, Next > Next >
+Next > choose folder and project name (e.g. blink), Next  > empty project, Next > Next >  
 type 5CSEBA6U19I7  in name filter, Next > Next > Finish
 
 File > New > Block Diagram/Schematic File 
@@ -57,7 +61,7 @@ System contents window >
 h2f_user0_clock >  double click on Export field
 memory > double click and delete "memory" from Export field
 
-![](./blink_files/qsys.png)
+![](./readme_files/qsys.png)
 
 Menu File > Save as >  /blink/blinkqsys.sys
 
@@ -72,7 +76,7 @@ Ok
 
 #### Important step to avoid compiling errors
 
-Outside quartus and Qsys, open with a text editor the generated file /blink/blinkqsys/synthesis/submodules/hps_sdram_p0.sdc, remove all it's content and save it.
+Outside quartus and Qsys, open with a text editor the generated file /blink/blinkqsys/synthesis/submodules/hps_sdram_p0.sdc,  remove all it's content and save it.
 
 
 Quartus app
@@ -80,7 +84,8 @@ Quartus app
 
 File > New > Verilog HDL File 
 
-Paste following content: 
+Paste following content:  
+ 
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,
@@ -99,7 +104,7 @@ Paste following content:
 
 Menu File > Save as >  simple_counter.v
 
-![](./blink_files/counter_verilog.png)
+![](./readme_files/counter_verilog.png)
 
 File > Create/Update > Create Symbol Files for Current File
 
@@ -109,7 +114,7 @@ Menu Project > Add/Remove files in project  > ...  > select ./blinkqsys/synthesi
 
 Go back to Block editor window (blink.bdf)  
 
-![](./blink_files/block-diagram-page.png)
+![](./readme_files/block-diagram-page.png)
 
 Symbol tool  >  libraries > Project/blinkqsys/blinkqsys > Ok
 Insert block in page and press esc key
@@ -117,13 +122,13 @@ Insert block in page and press esc key
 Symbol tool > libraries > Project/simple_counter > Ok
 Insert block in page and press esc key
 
-Pin tool > Insert two output pins on the page
-Double click on pin_name1  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y20
+Pin tool > Insert two output pins on the page  
+Double click on pin_name1  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y20  
 Double click on pin_name2  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y19
 
 
 Block diagram final schematic: 
-![](./blink_files/schematic.png)
+![](./readme_files/schematic.png)
 
 Draw a connection wire between blinkqsys block output  "hps_0_h2f_user0_clock_clk"  and "CLOCK" input of the simple counter.
 
@@ -146,7 +151,7 @@ Processing > Start > Start Analysis & Elaboration
 
 Assignments > Pin Planner
 
-![](./blink_files/pin_planner.png)
+![](./readme_files/pin_planner.png)
 
 Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y20    > Location >  PIN_Y20
 Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y219   > Location >  PIN_Y19
@@ -165,6 +170,7 @@ Programming the core into the FPGA
 * Connect the micro usb cable to the Blaster usb port (next to the black low speed expansion port)
 
 
+
 * Tools > Programmer
 
 
@@ -181,10 +187,11 @@ If no hardware is detected then you have to configure the udev rules (see below)
 * Add Device... > Soc Series V > double click SOCVHPS > Ok
 
 
+
 * Select the "SOCVHPS" and press the "Up" button so configuration should be like this:
 
 
-![](./blink_files/programmer.png)
+![](./readme_files/programmer.png)
 
 
 * Finally press the "Start" button and after progress is 100% (successful) you should have both leds (Wifi & BT) blinking  ;)  at different frequencies.
