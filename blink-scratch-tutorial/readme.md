@@ -1,8 +1,8 @@
 # Blink from scratch in Chameleon96
-by @somhic
+[github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96/tree/master/blink-scratch-tutorial)
 
-**Objective** 
 
+**Objective**  
 Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
@@ -22,22 +22,23 @@ This tutorial has been made with this software setup:
 **Sources of information**
 
 * [My_First_HPS.pdf](https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be) by Terasic
-
+* Chameleon96 telegram group
 
 
 Launch Quartus app
 ------------------
 
 File > New project wizard
-Next > choose folder and project name (e.g. blink), Next  > empty project, Next > Next >  
-type 5CSEBA6U19I7  in name filter, Next > Next > Finish
+
+* Next > choose folder and project name (e.g. blink), Next  > empty project, Next > Next >  
+* type 5CSEBA6U19I7  in name filter, Next > Next > Finish
+
 
 File > New > Block Diagram/Schematic File 
-
+ 
 File > Save as >  Blink.bdf
-
+ 
 File > New > Qsys System file		this opens Platform designer
-
 
 Platform designer (Qsys)
 ------------------------
@@ -47,32 +48,36 @@ System contents window > select clk_0 > right click > remove
 IP catalog > search "hps" > select "ArriaV/Cyclone V HPS" > Add
 
 ArriaV/Cyclone V HPS configuration window 
-FPGA interfaces > uncheck Enable MPU ...
-AXI Bridges > put all 3 to Unused
-	
-FPGA-to-HPS SDRAM Interface
-select  f2h_sdram0 and remove it with minus icon
-	
-HPS Clocks > Output clocks > HPS-to-FPGA User Clocks
-check Enable HPS-to-FPGA user 0 clock
+
+* FPGA interfaces > uncheck Enable MPU ...
+* AXI Bridges > put all 3 to Unused
+* FPGA-to-HPS SDRAM Interface
+	* select  f2h_sdram0 and remove it with minus icon
+* HPS Clocks > Output clocks > HPS-to-FPGA User Clocks
+	* check Enable HPS-to-FPGA user 0 clock
+
 
 Finish to close window
 
-System contents window > 
-h2f_user0_clock >  double click on Export field
-memory > double click and delete "memory" from Export field
+System contents window:
+
+* h2f_user0_clock >  double click on Export field
+* memory > double click and delete "memory" from Export field
+
 
 ![](./readme_files/qsys.png)
 
-Menu File > Save as >  /blink/blinkqsys.sys
+File > Save as >  /blink/blinkqsys.sys
 
 Click Generate HDL button at bottom page
-Create block symbol file checked 
-Output directory path > ../blink/blinkqsys
-Generate 
-Close
-Finish button
-Ok
+
+* Create block symbol file checked 
+* Output directory path > ../blink/blinkqsys
+* Generate 
+* Close
+* Finish button
+* Ok
+
 
 
 #### Important step to avoid compiling errors
@@ -86,7 +91,7 @@ Quartus app
 File > New > Verilog HDL File 
 
 Paste following content:  
-
+ 
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,
@@ -117,15 +122,14 @@ Go back to Block editor window (blink.bdf)
 
 ![](./readme_files/block-diagram-page.png)
 
-Symbol tool  >  libraries > Project/blinkqsys/blinkqsys > Ok
-Insert block in page and press esc key
+Symbol tool  >  libraries > Project/blinkqsys/blinkqsys > Ok,  Insert block in page and press Esc key
 
-Symbol tool > libraries > Project/simple_counter > Ok
-Insert block in page and press esc key
+Symbol tool > libraries > Project/simple_counter > Ok, Insert block in page and press Esc key
 
 Pin tool > Insert two output pins on the page  
-Double click on pin_name1  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y20  
-Double click on pin_name2  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y19
+
+* Double click on pin_name1  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y20  
+* Double click on pin_name2  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y19
 
 
 Block diagram final schematic: 
@@ -135,13 +139,14 @@ Draw a connection wire between blinkqsys block output  "hps_0_h2f_user0_clock_cl
 
 Draw a bus line connected on the output of the simple_counter output port, and leave the other end unconnected to the right of the simple_counter.
 Select the created bus line > right click > properties > type counter [31..0] as the bus name.  
+
 Note: The notation [X..Y] is the Quartus II method for specifying the bus width in BDF schematics, where X is the most significant bit (MSB) and Y is the least significant bit (LSB).
 
 Draw a wire connected on the left of both output pins, and leave the other end unconnected.
 Select the  first line > right click > properties > type counter [26] as the node name.
 Select the  second  line > right click > properties > type counter [24] as the node name.
 
-NOTE:  Without SD card inserted, HPS clock frequency is 25 MHz (100 MHz with original SD inserted)
+Note:  Without SD card inserted, HPS clock frequency is 25 MHz (100 MHz with original SD inserted)
 To calculate the time period (T) of the blinking you have to calculate like this:       1/((25000000/(2^26)))  
 where 25 corresponds to the 25 MHz and 26 is the bit of the counter we typed in the output pin  (counter[26])
 
@@ -152,11 +157,12 @@ Processing > Start > Start Analysis & Elaboration
 
 Assignments > Pin Planner
 
+* Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y20    > Location >  PIN_Y20
+* Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y219   > Location >  PIN_Y19
+
+
 ![](./readme_files/pin_planner.png)
 
-Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y20    > Location >  PIN_Y20
-Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y219   > Location >  PIN_Y19
-	
 File > close
 
 And finally...
@@ -173,16 +179,14 @@ Programming the core into the FPGA
 
 
 * Tools > Programmer
+	* Now a blue led in the board should be on indicating the programming usb blaster cable is connected and ready to go.
 
-
-Now a blue led in the board should be on indicating the programming usb blaster cable is connected and ready to go.
 
 
 * Hardware Setup... > Hardware Settings
+	* In available hardware items should show up the "Arrow 96 CV SoC Board". Double click on it and press Close button. 
+	* If no hardware is detected then you have to configure the udev rules (see below)
 
-
-In available hardware items should show up the "Arrow 96 CV SoC Board". Double click on it and press Close button. 
-If no hardware is detected then you have to configure the udev rules (see below)
 
 
 * Add Device... > Soc Series V > double click SOCVHPS > Ok
