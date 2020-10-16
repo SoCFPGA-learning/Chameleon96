@@ -1,6 +1,5 @@
 # Blink from scratch in Chameleon96
-[github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96/tree/master/blink-scratch-tutorial)
-
+[github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 **Objective**  
 Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
@@ -35,9 +34,9 @@ File > New project wizard
 
 
 File > New > Block Diagram/Schematic File 
- 
+
 File > Save as >  Blink.bdf
- 
+
 File > New > Qsys System file		this opens Platform designer
 
 Platform designer (Qsys)
@@ -91,7 +90,7 @@ Quartus app
 File > New > Verilog HDL File 
 
 Paste following content:  
- 
+
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,
