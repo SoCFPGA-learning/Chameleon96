@@ -1,6 +1,4 @@
 # Blink from scratch in Chameleon96
-[github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
-
 **Objective**  
 Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
@@ -22,6 +20,7 @@ This tutorial has been made with this software setup:
 
 * [My_First_HPS.pdf](https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be) by Terasic
 * Chameleon96 telegram group
+* [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
 Launch Quartus app
@@ -34,9 +33,9 @@ File > New project wizard
 
 
 File > New > Block Diagram/Schematic File 
-
-File > Save as >  Blink.bdf
-
+ 
+File > Save as >  blink.bdf
+ 
 File > New > Qsys System file		this opens Platform designer
 
 Platform designer (Qsys)
@@ -65,13 +64,14 @@ System contents window:
 
 
 ![](./readme_files/qsys.png)
+[![qsys.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/MSIf7iZDZDk8eHB0-qsys.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/MSIf7iZDZDk8eHB0-qsys.png>)
 
-File > Save as >  /blink/blinkqsys.sys
+File > Save as >  /blink/soc_hps.sys
 
 Click Generate HDL button at bottom page
 
-* Create block symbol file checked 
-* Output directory path > ../blink/blinkqsys
+* 'Create block symbol file' checked 
+* Output directory path > ../blink/soc_hps
 * Generate 
 * Close
 * Finish button
@@ -81,7 +81,7 @@ Click Generate HDL button at bottom page
 
 #### Important step to avoid compiling errors
 
-Outside quartus and Qsys, open with a text editor the generated file /blink/blinkqsys/synthesis/submodules/hps_sdram_p0.sdc,  remove all it's content and save it.
+Outside quartus and Qsys, open with a text editor the generated file /blink/soc_hps/synthesis/submodules/hps_sdram_p0.sdc,  remove all it's content and save it.
 
 
 Quartus app
@@ -89,8 +89,8 @@ Quartus app
 
 File > New > Verilog HDL File 
 
-Paste following content:  
-
+Paste following Verilog code:  
+ 
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,
@@ -110,18 +110,20 @@ Paste following content:
 Menu File > Save as >  simple_counter.v
 
 ![](./readme_files/counter_verilog.png)
+[![counter_verilog.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/urFMCwRMX1iIXkNN-counter_verilog.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/urFMCwRMX1iIXkNN-counter_verilog.png>)
 
 File > Create/Update > Create Symbol Files for Current File
 
 
-Menu Project > Add/Remove files in project  > ...  > select ./blinkqsys/synthesis/blinkqsys.qip, click  Open > Ok
+Menu Project > Add/Remove files in project  > ...  > select ./soc_hps/synthesis/soc_hps.qip, click  Open > Ok
 
 
 Go back to Block editor window (blink.bdf)  
 
 ![](./readme_files/block-diagram-page.png)
+[![block-diagram-page.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/14MZX4wD24cmrqiN-block-diagram-page.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/14MZX4wD24cmrqiN-block-diagram-page.png>)
 
-Symbol tool  >  libraries > Project/blinkqsys/blinkqsys > Ok,  Insert block in page and press Esc key
+Symbol tool  >  libraries > Project/soc_hps/soc_hps > Ok,  Insert block in page and press Esc key
 
 Symbol tool > libraries > Project/simple_counter > Ok, Insert block in page and press Esc key
 
@@ -133,8 +135,9 @@ Pin tool > Insert two output pins on the page
 
 Block diagram final schematic: 
 ![](./readme_files/schematic.png)
+[![schematic.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/q4veWW4zredPjrPj-schematic.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/q4veWW4zredPjrPj-schematic.png>)
 
-Draw a connection wire between blinkqsys block output  "hps_0_h2f_user0_clock_clk"  and "CLOCK" input of the simple counter.
+Draw a connection wire between soc_hps block output  "hps_0_h2f_user0_clock_clk"  and "CLOCK" input of the simple counter.
 
 Draw a bus line connected on the output of the simple_counter output port, and leave the other end unconnected to the right of the simple_counter.
 Select the created bus line > right click > properties > type counter [31..0] as the bus name.  
@@ -161,12 +164,15 @@ Assignments > Pin Planner
 
 
 ![](./readme_files/pin_planner.png)
+[![pin_planner.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/be4kfVy14vOLmM5L-pin_planner.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/be4kfVy14vOLmM5L-pin_planner.png>)
 
 File > close
 
 And finally...
 
 Processing  >  Start compilation
+
+If all is ok it should return following message "Quartus Prime Full Compilation was successful. 0 errors, xx warnings"
 
 
 Programming the core into the FPGA
@@ -196,6 +202,7 @@ Programming the core into the FPGA
 
 
 ![](./readme_files/programmer.png)
+[![programmer.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/Ot8pKNFfwhrlNbPl-programmer.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/Ot8pKNFfwhrlNbPl-programmer.png>)
 
 
 * Finally press the "Start" button and after progress is 100% (successful) you should have both leds (Wifi & BT) blinking  ;)  at different frequencies.
