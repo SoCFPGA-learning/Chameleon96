@@ -23,8 +23,10 @@ This tutorial has been made with this software setup:
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
-Launch Quartus app
-------------------
+Quartus app
+-----------
+
+Launch the Quartus app.
 
 File > New project wizard
 
@@ -36,7 +38,7 @@ File > New > Block Diagram/Schematic File
  
 File > Save as >  blink.bdf
  
-File > New > Qsys System file		this opens Platform designer
+File > New > Qsys System file		this opens Platform designer app
 
 Platform designer (Qsys)
 ------------------------
@@ -87,7 +89,7 @@ Outside quartus and Qsys, open with a text editor the generated file /blink/soc_
 Quartus app
 -----------
 
-File > New > Verilog HDL File 
+File > New > Verilog HDL File > Ok
 
 Paste following Verilog code:  
  
@@ -123,9 +125,9 @@ Go back to Block editor window (blink.bdf)
 ![](./readme_files/block-diagram-page.png)
 [![block-diagram-page.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/14MZX4wD24cmrqiN-block-diagram-page.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/14MZX4wD24cmrqiN-block-diagram-page.png>)
 
-Symbol tool  >  libraries > Project/soc_hps/soc_hps > Ok,  Insert block in page and press Esc key
+Symbol tool  >  libraries > Project/soc_hps/soc_hps > Ok,  Insert block in the diagram and press Esc key
 
-Symbol tool > libraries > Project/simple_counter > Ok, Insert block in page and press Esc key
+Symbol tool > libraries > Project/simple_counter > Ok, Insert block in the diagram and press Esc key
 
 Pin tool > Insert two output pins on the page  
 
@@ -172,11 +174,15 @@ And finally...
 
 Processing  >  Start compilation
 
-If all is ok it should return following message "Quartus Prime Full Compilation was successful. 0 errors, xx warnings"
+If all is ok it should return following message: Quartus Prime Full Compilation was successful. 0 errors, xx warnings.
 
 
 Programming the core into the FPGA
 ----------------------------------
+
+
+* Power up the board (without the SD card inserted).
+
 
 
 * Connect the micro usb cable to the Blaster usb port (next to the black low speed expansion port)
