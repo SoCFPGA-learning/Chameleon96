@@ -22,16 +22,15 @@ This tutorial has been made with this software setup:
 **Sources of information**
 
 * [Blink from scratch tutorial](https://github.com/somhi/kameleon96/tree/master/1-blink-scratch-tutorial) 
-* [Raetro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
+* [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
 * Chameleon96 telegram group
 
 
 **Download files**
 
 * Complete Quartus project [./2.blink-loanio.zip](./readme_files/2.blink-loanio.zip)  
-* Preloader for this project  
+* Preloader for this project  [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)  
 
-[./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)  
 
 Preparation
 -----------
@@ -82,7 +81,7 @@ In System Contents,  double click to export on  Export field for the following e
 
 
 This is the final configuration for this tutorial:
-![](./readme_files/pasted_image.png)
+![](./readme_files/qsys_config.png)
 
 File > Save
 
@@ -153,7 +152,7 @@ Symbol tool > libraries > Project/loanio_control > Ok, Insert block in the diagr
 
 Move the loanio_control block to the left of the soc_hps block and connect the bus wires ...out and ...oe as the image below.
 
-![](./readme_files/pasted_image001.png)
+![](./readme_files/block-diagram.png)
 
 Draw a bus line connected on the output port hps_0_h2f_loan_io_in of the soc_hps block, and leave the other end unconnected to the left of the block.  
 Select the created bus line > right click > properties > type loanio_in[66..0] as the bus name.  
