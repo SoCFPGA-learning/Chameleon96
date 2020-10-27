@@ -1,35 +1,39 @@
 # 2-Blink-LoaIOs
-**Objective**  
+Intro
+-----
+
+#### Objective
 
 * Design and compile an FPGA core using the LOAN I/O function to use I/O normally assigned to the HPS from the FPGA side.
 * We will do another blink example this time with the four user leds of the Chameleon96 board which are by default controlled from HPS side (ARM).
 * We will keep also the blink of the WIFI and the BT leds from the previous tutorial.
 
 
-**Prerequisites**
+#### Prerequisites
 
 * Chameleon96 board
 * Quartus lite software
 
 
-**Considerations**
+#### Considerations
 This tutorial has been made with this software setup:
 
 * OS Ubuntu 20.04
 * Quartus lite 20.1
 
 
-**Sources of information**
+#### Sources of information
 
 * [Blink from scratch tutorial](https://github.com/somhi/kameleon96/tree/master/1-blink-scratch-tutorial) 
 * [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
 * Chameleon96 telegram group
+	* Note: credits for the very first loanio blink code goes to our community member Sysadmin
 
 
-**Download files**
+#### Download files
 
 * Complete Quartus project [./2.blink-loanio.zip](./readme_files/2.blink-loanio.zip)  
-* Preloader for this project  [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)  
+* Preloader for this project  [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)  (from community member Sysadmin)
 
 
 Preparation
@@ -209,11 +213,21 @@ Assignment of the I/Os to HPS / FPGA is made during boot time in the preloader (
 For the moment you can:
 
 1. Replace the preloader with this one already made ( file: [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp))
-2. Generate your own preloader (look at the info from [Raetro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) steps 9 to 14)
+2. Generate your own preloader (look at the info from [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) steps 9 to 14)
 
 
 This part of the tutorial might be expanded in future reviews.
 
 
+Final considerations
+--------------------
+In order to avoid compiling errors the following elements were required into the project:
+
+* Qsys
+	* Export memory from hps_0 component
+	* In hps_0 properties add SD and UART controllers into the Peripheral Pins tab (this is needed for boot process from SD card)
+* Quartus
+	* Add IO pins in top-level design   > Generate pins for symbol ports 
+	* Add sdram parameters into .qsf project file > run tcl script  hps_sdram_p0_pin_assignments.tcl after Analysis & Synthesis
 
 

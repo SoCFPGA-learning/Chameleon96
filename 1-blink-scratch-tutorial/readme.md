@@ -1,29 +1,32 @@
 # Blink from scratch in Chameleon96
-**Objective**  
+Intro
+-----
+
+#### Objective
 Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
-**Prerequisites**
+#### Prerequisites
 
 * Chameleon96 board
 * Quartus lite software
 
 
-**Considerations**
+#### Considerations
 This tutorial has been made with this software setup:
 
 * OS Ubuntu 20.04
 * Quartus lite 20.1
 
 
-**Sources of information**
+#### Sources of information
 
 * [My_First_HPS.pdf](https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be) by Terasic
 * Chameleon96 telegram group
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
-**Download files**
+#### Download files
 
 * Complete Quartus project [./1.blink-scratch.zip](./readme_files/1.blink-scratch.zip)
 
