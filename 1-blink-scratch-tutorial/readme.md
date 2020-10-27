@@ -23,6 +23,11 @@ This tutorial has been made with this software setup:
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
+**Download files**
+
+* Complete Quartus project [./1.blink-scratch.zip](./readme_files/1.blink-scratch.zip)
+
+
 Quartus app
 -----------
 
