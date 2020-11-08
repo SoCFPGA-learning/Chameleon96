@@ -1,4 +1,9 @@
-# 2-Blink-LoaIOs
+# Blink through LoanIOs in Chameleon96
+Table of contents
+-----------------
+
+![](./readme_files/toc.png)
+
 Intro
 -----
 
@@ -22,11 +27,13 @@ This tutorial has been made with this software setup:
 * Quartus lite 20.1
 
 
+There shouldn't be any major problem for following this tutorial with older versions of Quartus and/or if you are on Windows OS.
+
 #### Sources of information
 
 * [Blink from scratch tutorial](https://github.com/somhi/kameleon96/tree/master/1-blink-scratch-tutorial) 
 * [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
-* Chameleon96 telegram group
+* [Chameleon96 telegram group](https://t.me/Chameleon96)
 	* Note: credits for the very first loanio blink code goes to our community member Sysadmin
 
 
@@ -210,13 +217,11 @@ What happened with the LOANIO user leds ?
 
 Assignment of the I/Os to HPS / FPGA is made during boot time in the preloader (SPL).  The preloader from the original SD card should be changed with a new one generated with the settings data from Quartus and the BSP editor app from Intel FPGA Embedded Command Shell (Intel SoC EDS (Embedded Development Suite) is required).
 
-For the moment you can:
+If you just want to run this tutorial and see the four user leds blinking, just replace the preloader with this one already made ( file: [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)). 
 
-1. Replace the preloader with this one already made ( file: [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp))
-2. Generate your own preloader (look at the info from [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) steps 9 to 14)
+If you want to do the full process yourself and/or add other loanIO pins,  you should generate your own preloader. 
 
-
-This part of the tutorial might be expanded in future reviews.
+See next tutorial ([3-SD-card+Preloader-for-loanIOs](file:///home/jordi/Documents/Arduino-DIY/FPGA-Chamaleon96/export/3-SD-card%2BPreloader-for-loanIOs)) to learn how to do it in both ways.
 
 
 Final considerations
