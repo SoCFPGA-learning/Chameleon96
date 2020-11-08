@@ -45,7 +45,7 @@ Let's see how the SD card is partitioned.  In Linux just follow these steps:
 * Determine which is your SD device through one of these methods:
 	* command 'lsblk'  lists all the devices and identify your just inserted SD card
 	* command 'gnome-disks' will launch an IDE where you can select the just inserted SD card and see its device identification
-* To see the partition Id launch the following command:
+* To see the partition Id launch the following command:  
 
 
 	sudo fdisk -l /dev/sdX
@@ -88,7 +88,7 @@ If you want to preserve your original Chameleon96 SD card make a backup of it.
 In Linux just follow these steps:
 
 * Determine which is your SD device through the methods described above
-* Use the 'dd' command to copy the device input (if) to the output file (of)  (rename sd.img as you like)  in blocks of 1MB and we are just going to copy the firsts 3800 blocks as the rest of space in the SD card is not used
+* Use the 'dd' command to copy the device input (if) to the output file (of)  (rename sd.img as you like)  in blocks of 1MB and we are just going to copy the firsts 3800 blocks as the rest of space in the SD card is not used  
 
 
 	sudo dd if=/dev/sdX of=sd.img bs=1M count=3800 
@@ -97,7 +97,7 @@ In Linux just follow these steps:
 
 
 * Now we are left in the current terminal folder with the file 'sd.img' which is about 4GB long
-* Compress the file to save storage space 
+* Compress the file to save storage space   
 
 
 	tar zcvf sd.img.tar.gz sd.img
@@ -132,7 +132,7 @@ In Linux just follow these steps:
 **YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
 
 
-* Decompress the backup image and use the 'dd' command to copy the image input file (if) to the output device (of) in blocks of 1MB 
+* Decompress the backup image and use the 'dd' command to copy the image input file (if) to the output device (of) in blocks of 1MB  
 
 
 	tar zxvf sd.img.tar.gz
@@ -141,7 +141,7 @@ In Linux just follow these steps:
 	#[Replace sdX with your own device]
 
 
-* Alternatively you can directly restore the image from a tar compressed file with this command:
+* Alternatively you can directly restore the image from a tar compressed file with this command:  
 
  
 	tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
