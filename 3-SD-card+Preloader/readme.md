@@ -133,8 +133,7 @@ In Linux just follow these steps:
 * Determine which is your SD device through the methods described above  
 
 
-**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY.  **
-**YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
+**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY. YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
 
 
 * Decompress the backup image and use the 'dd' command to copy the image input file (if) to the output device (of) in blocks of 1MB  
@@ -317,8 +316,7 @@ Follow these steps to replace the preloader / u-boot in your SD card:
 * Determine which is your SD device through the methods described above  
 
 
-**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY.  **
-**YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
+**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY. YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
 
 
 * Use the 'dd' command to replace the image input file (if) into the output device (of) 
