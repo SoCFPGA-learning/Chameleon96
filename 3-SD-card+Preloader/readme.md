@@ -1,6 +1,4 @@
 # SD card / Generate preloader for your LoanIOs
-[TOC]
-
 Intro
 -----
 
@@ -96,10 +94,12 @@ In Linux just follow these steps:
 
 
 * Now we are left in the current terminal folder with the file 'sd.img' which is about 4GB long
-* Compress the file to save storage space   
+* Compress the file to save storage space
 
-  
+
+	
 	tar zcvf sd.img.tar.gz sd.img
+	
 
 
 

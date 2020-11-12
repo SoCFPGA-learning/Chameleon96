@@ -1,5 +1,4 @@
 # Blink upload tutorial for totally newbees to Quartus and Chameleon96
-[TOC]
 
 Intro
 -----
@@ -64,7 +63,7 @@ Steps for loading first blink example
 
   Shutdown linux properly from console (I got an error when trying to shutdown from graphical interface). 
   Access the linux console though HDMI output or from serial output with an USB-TTL cable. 
-  
+
 Pins B W G on board correspond to colors from usb-ttl included in the kit.
   B = Black (Ground), W = White (Rx), 	G = Green (Tx)
 	

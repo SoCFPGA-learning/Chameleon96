@@ -1,5 +1,4 @@
 # Blink from scratch in Chameleon96
-[TOC]
 
 Intro
 -----
@@ -47,9 +46,9 @@ File > New project wizard
 
 
 File > New > Block Diagram/Schematic File 
- 
+
 File > Save as >  blink.bdf
- 
+
 File > New > Qsys System file		this opens Platform designer app
 
 Platform designer (Qsys)
@@ -104,7 +103,7 @@ Quartus app
 File > New > Verilog HDL File > Ok
 
 Paste following Verilog code:  
- 
+
 	//It has a single clock input and a 32-bit output port
 	module simple_counter (
 				CLOCK,

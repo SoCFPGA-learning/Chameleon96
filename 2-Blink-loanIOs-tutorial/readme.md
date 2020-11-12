@@ -1,5 +1,4 @@
 # Blink through LoanIOs in Chameleon96
-[TOC]
 
 Intro
 -----
