@@ -133,7 +133,7 @@ In Linux just follow these steps:
 * Determine which is your SD device through the methods described above  
 
 
-**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY. **
+**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY.  **
 **YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
 
 
@@ -293,7 +293,7 @@ export CROSS_COMPILE=arm-linux-gnueabihf-
 ```
 
 
-The go into your u-boot folder and compile it:
+Then go into your u-boot folder and compile it:
 
 ```
 cd u-boot-socfpga/
@@ -317,7 +317,7 @@ Follow these steps to replace the preloader / u-boot in your SD card:
 * Determine which is your SD device through the methods described above  
 
 
-**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY. **
+**NOTE:  FOLLOWING STEP COULD POTENTIALLY DESTROY DATA IN YOUR SYSTEM IF NOT USED CORRECTLY.  **
 **YOU ARE RESPONSIBLE TO SELECT THE RIGHT DEVICE AND PARTITION WHERE TO RESTORE YOUR IMAGE.**
 
 
