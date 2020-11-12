@@ -1,4 +1,6 @@
 # Blink upload tutorial for totally newbees to Quartus and Chameleon96
+[TOC]
+
 Intro
 -----
 
@@ -20,9 +22,11 @@ This tutorial has been made with this software setup:
 * Quartus lite 20.1
 
 
+There shouldn't be any major problem for following this tutorial with older versions of Quartus and/or if you are on Windows OS.
+
 #### Sources of information
 
-* Chameleon96 telegram group
+* [Chameleon96 telegram group](https://t.me/Chameleon96)
 	* Note: credits for the very first blink code goes to our community member Yo_Me
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
@@ -62,7 +66,7 @@ Steps for loading first blink example
   Access the linux console though HDMI output or from serial output with an USB-TTL cable. 
   
 Pins B W G on board correspond to colors from usb-ttl included in the kit.
-  B = Black (Ground), 	W = White (Rx), 	G = Green (Tx)
+  B = Black (Ground), W = White (Rx), 	G = Green (Tx)
 	
 From host computer:  
 picocom -b 115200 /dev/ttyUSB0   

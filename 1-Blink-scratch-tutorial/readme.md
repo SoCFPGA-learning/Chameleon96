@@ -1,4 +1,6 @@
 # Blink from scratch in Chameleon96
+[TOC]
+
 Intro
 -----
 
@@ -19,10 +21,12 @@ This tutorial has been made with this software setup:
 * Quartus lite 20.1
 
 
+There shouldn't be any major problem for following this tutorial with older versions of Quartus and/or if you are on Windows OS.
+
 #### Sources of information
 
 * [My_First_HPS.pdf](https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be) by Terasic
-* Chameleon96 telegram group
+* [Chameleon96 telegram group](https://t.me/Chameleon96)
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
@@ -159,7 +163,7 @@ Select the  first line > right click > properties > type counter [26] as the nod
 Select the  second  line > right click > properties > type counter [24] as the node name.
 
 Note:  Without SD card inserted, HPS clock frequency is 25 MHz (100 MHz with original SD inserted)
-To calculate the time period (T) of the blinking you have to calculate like this:       1/((25000000/(2^26)))  
+To calculate the time period (T) of the blinking you have to calculate like this:       2*1/((25000000/(2^26)))  
 where 25 corresponds to the 25 MHz and 26 is the bit of the counter we typed in the output pin  (counter[26])
 
 File > Save

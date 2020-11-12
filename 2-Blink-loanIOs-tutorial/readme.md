@@ -1,8 +1,5 @@
 # Blink through LoanIOs in Chameleon96
-Table of contents
------------------
-
-![](./readme_files/toc.png)
+[TOC]
 
 Intro
 -----
@@ -221,7 +218,7 @@ If you just want to run this tutorial and see the four user leds blinking, just 
 
 If you want to do the full process yourself and/or add other loanIO pins,  you should generate your own preloader. 
 
-See next tutorial ([3-SD-card+Preloader-for-loanIOs](file:///home/jordi/Documents/Arduino-DIY/FPGA-Chamaleon96/export/3-SD-card%2BPreloader-for-loanIOs)) to learn how to do it in both ways.
+See next tutorial (3-SD-card+Preloader) to learn how to do it in both ways.
 
 
 Final considerations

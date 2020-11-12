@@ -1,8 +1,5 @@
 # SD card / Generate preloader for your LoanIOs
-Table of contents
------------------
-
-![](./readme_files/toc.png)
+[TOC]
 
 Intro
 -----
@@ -80,6 +77,7 @@ As we can see in the output above, in the original Chameleon96 SD card there are
 
 We can recognize the preloader/u-boot partition with the Id **a2** which in my case corresponds to /dev/sdb3
 
+
 Backup your original Chameleon96 16 GB SD card
 ----------------------------------------------
 
@@ -96,10 +94,11 @@ In Linux just follow these steps:
 	#[Replace sdX with your own device]
 
 
+
 * Now we are left in the current terminal folder with the file 'sd.img' which is about 4GB long
 * Compress the file to save storage space   
 
-
+  
 	tar zcvf sd.img.tar.gz sd.img
 
 
