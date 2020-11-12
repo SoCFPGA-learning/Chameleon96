@@ -43,24 +43,26 @@ Let's see how the SD card is partitioned.  In Linux just follow these steps:
 * To see the partition Id launch the following command:  
 
 
-	sudo fdisk -l /dev/sdX
-	
-	#Replace sdX with your own device
-	#This is an example  output of my 8GB SD card /dev/sdb
-	#sdb1, sdb2, sdb3 corresponds to the partitions of this device
-	
-	Disk /dev/sdb: 7,46 GiB, 7994343424 bytes, 15613952 sectors
-	Disk model: SD  Transcend   
-	Units: sectors of 1 * 512 = 512 bytes
-	Sector size (logical/physical): 512 bytes / 512 bytes
-	I/O size (minimum/optimal): 512 bytes / 512 bytes
-	Disklabel type: dos
-	Disk identifier: 0x87d11764
-	
-	Device    			Start   Final 	Sectors   Size Id  Type
-	/dev/sdb1            7154892 7574321  419430 204,8M  b W95 FAT32
-	/dev/sdb2              14336 7144651 7130316   3,4G 83 Linux
-	/dev/sdb3               2048    4095    2048     1M a2 unknown
+```
+sudo fdisk -l /dev/sdX
+
+#Replace sdX with your own device
+#This is an example  output of my 8GB SD card /dev/sdb
+#sdb1, sdb2, sdb3 corresponds to the partitions of this device
+
+Disk /dev/sdb: 7,46 GiB, 7994343424 bytes, 15613952 sectors
+Disk model: SD  Transcend   
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x87d11764
+
+Device    			Start   Final 	Sectors   Size Id  Type
+/dev/sdb1            7154892 7574321  419430 204,8M  b W95 FAT32
+/dev/sdb2              14336 7144651 7130316   3,4G 83 Linux
+/dev/sdb3               2048    4095    2048     1M a2 unknown
+```
 
 
 As we can see in the output above, in the original Chameleon96 SD card there are three partitions:
@@ -87,9 +89,11 @@ In Linux just follow these steps:
 * Use the 'dd' command to copy the device input (if) to the output file (of)  (rename sd.img as you like)  in blocks of 1MB and we are just going to copy the firsts 3800 blocks as the rest of space in the SD card is not used  
 
 
-	sudo dd if=/dev/sdX of=sd.img bs=1M count=3800 
-	
-	#[Replace sdX with your own device]
+```
+sudo dd if=/dev/sdX of=sd.img bs=1M count=3800 
+
+#[Replace sdX with your own device]
+```
 
 
 
@@ -97,9 +101,9 @@ In Linux just follow these steps:
 * Compress the file to save storage space
 
 
-	
-	tar zcvf sd.img.tar.gz sd.img
-	
+```
+tar zcvf sd.img.tar.gz sd.img
+```
 
 
 
@@ -111,9 +115,11 @@ Backup the bootloader/u-boot partition (or any particular partition)
 You can backup just a particular partition of the SD card.   
 For example if you want to just backup the u-boot partition (Id a2) launch:
 
-	sudo dd if=/dev/sdXY of=sd-uboot.img
-	
-	#[Replace sdXY with your own device X and partition Y (in my case is /dev/sdb3)]
+```
+sudo dd if=/dev/sdXY of=sd-uboot.img
+
+#[Replace sdXY with your own device X and partition Y (in my case is /dev/sdb3)]
+```
 
 
 
@@ -134,16 +140,20 @@ In Linux just follow these steps:
 * Decompress the backup image and use the 'dd' command to copy the image input file (if) to the output device (of) in blocks of 1MB  
 
 
-	tar zxvf sd.img.tar.gz
-	sudo dd if=sd.img of=/dev/sdX bs=1M
-	
-	#[Replace sdX with your own device]
+```
+tar zxvf sd.img.tar.gz
+sudo dd if=sd.img of=/dev/sdX bs=1M
+
+#[Replace sdX with your own device]
+```
 
 
 * Alternatively you can directly restore the image from a tar compressed file with this command:  
 
  
-	tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
+```
+tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
+```
 
 (use of this tar command can be seen [here](https://wilt.isaac.su/articles/how-to-write-a-disk-image-directly-from-targz-using-tar-and-dd)).
 
@@ -158,14 +168,18 @@ Run the BSP editor from the Intel FPGA Embedded Command Shell ([Intel SoC EDS](h
 
 First launch a terminal in the Quartus project folder and load the embedded shell of EDS:
 
-	/your-install-folder-full-path/intelFPGA_lite/20.1/embedded/embedded_command_shell.sh
-	
-	# modify according to your EDS installation folder and EDS version 17.1, 20.1, ...
+```
+/your-install-folder-full-path/intelFPGA_lite/20.1/embedded/embedded_command_shell.sh
+
+# modify according to your EDS installation folder and EDS version 17.1, 20.1, ...
+```
 
 
 Then run the BSP editor:
 
-	bsp-editor
+```
+bsp-editor
+```
 
 
 * Select File->New BSP and select the following:
@@ -185,8 +199,10 @@ Note: If we want to use another version of u-boot jump to the next point.
 * You can now cd to the newly created folder inside the Quartus project main folder and make the preloader.
 
 
-	cd software/spl_bsp/
-	make
+```
+cd software/spl_bsp/
+make
+```
 
 
 You should be left with a **preloader-mkpimage.bin** file, which is actually multiple copies of the preloader concatenated together, ready to be burned to your boot media (see below).
@@ -210,7 +226,9 @@ Here we will clone the latest u-boot from Altera's github.
 
 Open a terminal in the folder you want to store the u-boot and launch:
 
-	git clone https://github.com/altera-opensource/u-boot-socfpga
+```
+git clone https://github.com/altera-opensource/u-boot-socfpga
+```
 
 
 #### Run QTS-filter
@@ -219,28 +237,32 @@ QTS-filter will process the files generated by Quartus in the previous steps and
 
 Open a terminal window in the u-boot folder, and launch the qts-filter program. 
 
-	$ ./arch/arm/mach-socfpga/qts-filter.sh \
-			<soc_type> \
-			<input_qts_dir> \
-			<input_bsp_dir> \
-			<output_dir>
-			
-	# qts-filter process QTS-generated files into U-Boot compatible ones.
-	#	soc_type      - Type of SoC, either 'cyclone5' or 'arria5'.
-	#	input_qts_dir - Directory with compiled Quartus project and containing the Quartus project file (QPF).
-	#	input_bsp_dir - Directory with generated bsp containing the settings.bsp file.
-	#	output_dir    - Directory to store the U-Boot compatible headers.
+```
+$ ./arch/arm/mach-socfpga/qts-filter.sh \
+		<soc_type> \
+		<input_qts_dir> \
+		<input_bsp_dir> \
+		<output_dir>
+		
+# qts-filter process QTS-generated files into U-Boot compatible ones.
+#	soc_type      - Type of SoC, either 'cyclone5' or 'arria5'.
+#	input_qts_dir - Directory with compiled Quartus project and containing the Quartus project file (QPF).
+#	input_bsp_dir - Directory with generated bsp containing the settings.bsp file.
+#	output_dir    - Directory to store the U-Boot compatible headers.
+```
 
 
 This is a real example:
 
-	cd u-boot-socfpga
-	./arch/arm/mach-socfpga/qts-filter.sh  \
-		cyclone5  \
-		/home/username/Coding/chameleon96/3.blink-loanio-LS_connector \
-		/home/username/Coding/chameleon96/3.blink-loanio-LS_connector/software/spl_bsp \
-		./board/altera/cyclone5-socdk/qts 
-	
+```
+cd u-boot-socfpga
+./arch/arm/mach-socfpga/qts-filter.sh  \
+	cyclone5  \
+	/home/username/Coding/chameleon96/3.blink-loanio-LS_connector \
+	/home/username/Coding/chameleon96/3.blink-loanio-LS_connector/software/spl_bsp \
+	./board/altera/cyclone5-socdk/qts 
+
+```
 
 
 #### Compile u-boot
@@ -249,29 +271,35 @@ Here we will compile the latest u-boot from Altera's github.
 
 Run the following commands (just needed the first time you compile): 
 
-	#cd to-your-own-folder  (in my case ~/bin)
-	cd ~/bin
-	#download gcc version needed to compile u-boot in the the Chameleon96 board
-	wget https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-	#extract its content
-	tar xf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
-	#install dependencies required for compiling
-	sudo apt-get install build-essential bc liblz4-tool device-tree-compiler wget libncurses5-dev libncursesw5-dev bison flex libssl-dev
-	
+```
+#cd to-your-own-folder  (in my case ~/bin)
+cd ~/bin
+#download gcc version needed to compile u-boot in the the Chameleon96 board
+wget https://releases.linaro.org/components/toolchain/binaries/7.5-2019.12/arm-linux-gnueabihf/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+#extract its content
+tar xf gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf.tar.xz
+#install dependencies required for compiling
+sudo apt-get install build-essential bc liblz4-tool device-tree-compiler wget libncurses5-dev libncursesw5-dev bison flex libssl-dev
+
+```
 
 
 Thereafter, every time you want to compile, you need to export following variables in a terminal:
 
-	export PATH=~/bin/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/bin:$PATH
-	export ARCH=arm
-	export CROSS_COMPILE=arm-linux-gnueabihf-
+```
+export PATH=~/bin/gcc-linaro-7.5.0-2019.12-x86_64_arm-linux-gnueabihf/bin:$PATH
+export ARCH=arm
+export CROSS_COMPILE=arm-linux-gnueabihf-
+```
 
 
 The go into your u-boot folder and compile it:
 
-	cd u-boot-socfpga/
-	make socfpga_cyclone5_defconfig
-	make  -j 24
+```
+cd u-boot-socfpga/
+make socfpga_cyclone5_defconfig
+make  -j 24
+```
 
 
 You should be left with a **u-boot-with-spl.sfp** file, ready to be burned to your SD card (see below).
@@ -296,10 +324,12 @@ Follow these steps to replace the preloader / u-boot in your SD card:
 * Use the 'dd' command to replace the image input file (if) into the output device (of) 
 
 
-	sudo dd if=u-boot-with-spl.sfp of=/dev/sdXY  
-	
-	#[Replace u-boot-with-spl.sfp with your preloader/u-boot filename]
-	#[Replace sdXY with your own device X and partition Y]
+```
+sudo dd if=u-boot-with-spl.sfp of=/dev/sdXY  
+
+#[Replace u-boot-with-spl.sfp with your preloader/u-boot filename]
+#[Replace sdXY with your own device X and partition Y]
+```
 
 
 Final considerations
