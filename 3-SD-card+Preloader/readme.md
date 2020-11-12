@@ -97,11 +97,11 @@ In Linux just follow these steps:
 * Compress the file to save storage space
 
 
-	
 	tar zcvf sd.img.tar.gz sd.img
+
+	sudo dd if=/dev/sdXY of=sd-uboot.img
 	
-
-
+	#[Replace sdXY with your own device X and partition Y (in my case is /dev/sdb3)]
 
 Backup the bootloader/u-boot partition (or any particular partition)
 --------------------------------------------------------------------
