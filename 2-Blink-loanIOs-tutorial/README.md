@@ -2,11 +2,11 @@
 ### Table of contents
 
 * Intro 
-		* Objective 
-		* Prerequisites 
-		* Considerations 
-		* Sources of information 
-		* Download files 
+	* Objective 
+	* Prerequisites 
+	* Considerations 
+	* Sources of information 
+	* Download files 
 * Preparation 
 * Quartus app 
 * Platform designer (Qsys) 
@@ -20,20 +20,20 @@
 Intro
 -----
 
-#### Objective
+### Objective
 
 * Design and compile an FPGA core using the LOAN I/O function to use I/O normally assigned to the HPS from the FPGA side.
 * We will do another blink example this time with the four user leds of the Chameleon96 board which are by default controlled from HPS side (ARM).
 * We will keep also the blink of the WIFI and the BT leds from the previous tutorial.
 
 
-#### Prerequisites
+### Prerequisites
 
 * Chameleon96 board
 * Quartus lite software
 
 
-#### Considerations
+### Considerations
 This tutorial has been made with this software setup:
 
 * OS Ubuntu 20.04
@@ -42,7 +42,7 @@ This tutorial has been made with this software setup:
 
 There shouldn't be any major problem for following this tutorial with older versions of Quartus and/or if you are on Windows OS.
 
-#### Sources of information
+### Sources of information
 
 * [Blink from scratch tutorial](https://github.com/somhi/kameleon96/tree/master/1-blink-scratch-tutorial) 
 * [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
@@ -50,7 +50,7 @@ There shouldn't be any major problem for following this tutorial with older vers
 	* Note: credits for the very first loanio blink code goes to our community member Sysadmin
 
 
-#### Download files
+### Download files
 
 * Complete Quartus project [./2.blink-loanio.zip](./README_files/2.blink-loanio.zip)  
 * Preloader for this project  [./u-boot-with-spl.sfp](./README_files/u-boot-with-spl.sfp)  (from community member Sysadmin)
