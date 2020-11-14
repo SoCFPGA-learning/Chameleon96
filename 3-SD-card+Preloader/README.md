@@ -2,16 +2,16 @@
 ### Table of contents
 
 * Intro 
-		* Objectives 
-		* Prerequisites 
-		* Considerations 
-		* Sources of information 
+	* Objectives 
+	* Prerequisites 
+	* Considerations 
+	* Sources of information 
 * Partition structure of the original Chameleon96 SD card 
 * Backup your original Chameleon96 16 GB SD card 
 * Backup the bootloader/u-boot partition (or any particular partition) 
 * Restore the SD image into another card to mess with it 
 * Generate the preloader / u-boot 
-		* Run the BSP editor 
+	* Run the BSP editor 
 	* Process for u-boot included with EDS versions up to 19.0 
 	* Process for other u-boot versions and for EDS versions from 19.1 
 		* Download u-boot 
@@ -24,7 +24,7 @@
 Intro
 -----
 
-#### Objectives
+### Objectives
 
 * Backup your original Chameleon96 16 GB SD card
 * Restore the original SD card into another card to mess with it
@@ -32,19 +32,19 @@ Intro
 * Burn the preloader / u-boot into the SD card (to work with loanIOs)
 
 
-#### Prerequisites
+### Prerequisites
 
 * Original 16GB SD card from Chameleon96 board
 * [Intel SoC EDS](https://fpgasoftware.intel.com/soceds/) (Embedded Development Suite) 
 
 
-#### Considerations
+### Considerations
 This tutorial has been made with this software setup:
 
 * OS Ubuntu 20.04
 
 
-#### Sources of information
+### Sources of information
 
 * [Chameleon96 telegram group](https://t.me/Chameleon96)
 * [Rætro's docs  to generate the preloader](https://docs.raetro.com/books/arrow-chameleon96/page/overview)
@@ -183,7 +183,7 @@ Generate the preloader / u-boot
 
 After generating in the previous tutorial the Qsys HDL and compiling successfully your project, Quartus generates an hps_isw_handoff folder with the required settings data to generate the preloader with your loanIOs configured.
 
-#### Run the BSP editor
+### Run the BSP editor
 
 Run the BSP editor from the Intel FPGA Embedded Command Shell ([Intel SoC EDS](https://fpgasoftware.intel.com/soceds/) installation is required)
 
