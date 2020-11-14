@@ -2,11 +2,11 @@
 ### Table of contents
 
 * Intro 
-		* Objective 
-		* Prerequisites 
-		* Considerations 
-		* Sources of information 
-		* Download files 
+	* Objective 
+	* Prerequisites 
+	* Considerations 
+	* Sources of information 
+	* Download files 
 * Preparation 
 * Steps for loading first blink example 
 * Final considerations 
@@ -15,18 +15,18 @@
 Intro
 -----
 
-#### Objective
+### Objective
 
 Upload a ready made blink example core to your Chameleon96 board. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
-#### Prerequisites
+### Prerequisites
 
 * [Chameleon96 board](https://www.96boards.org/product/chameleon96/)
 * [Quartus lite sofware](https://fpgasoftware.intel.com/?edition=lite)
 
 
-#### Considerations
+### Considerations
 This tutorial has been made with this software setup: 
 
 * OS Ubuntu 20.04. 
@@ -35,14 +35,14 @@ This tutorial has been made with this software setup:
 
 There shouldn't be any major problem for following this tutorial with older versions of Quartus and/or if you are on Windows OS.
 
-#### Sources of information
+### Sources of information
 
 * [Chameleon96 telegram group](https://t.me/Chameleon96)
 	* Note: credits for the very first blink code goes to our community member Yo_Me
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
-#### Download files
+### Download files
 
 * Binary core for blink example]([./CV_96_blink_Yo_Me.sof](./README_files/CV_96_blink_Yo_Me.sof)) 
 
