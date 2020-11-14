@@ -1,4 +1,26 @@
 # SD card / Generate preloader for your LoanIOs
+### Table of contents
+
+* Intro 
+		* Objectives 
+		* Prerequisites 
+		* Considerations 
+		* Sources of information 
+* Partition structure of the original Chameleon96 SD card 
+* Backup your original Chameleon96 16 GB SD card 
+* Backup the bootloader/u-boot partition (or any particular partition) 
+* Restore the SD image into another card to mess with it 
+* Generate the preloader / u-boot 
+		* Run the BSP editor 
+	* Process for u-boot included with EDS versions up to 19.0 
+	* Process for other u-boot versions and for EDS versions from 19.1 
+		* Download u-boot 
+		* Run QTS-filter 
+		* Compile u-boot 
+* Burn the preloader / u-boot into the SD card (to work with loanIOs) 
+* Final considerations 
+
+
 Intro
 -----
 

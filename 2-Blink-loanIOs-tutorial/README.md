@@ -1,4 +1,21 @@
 # Blink through LoanIOs in Chameleon96
+### Table of contents
+
+* Intro 
+		* Objective 
+		* Prerequisites 
+		* Considerations 
+		* Sources of information 
+		* Download files 
+* Preparation 
+* Quartus app 
+* Platform designer (Qsys) 
+* Quartus app 
+* Compiling the code 
+* Programming the core into the FPGA 
+* What happened with the LOANIO user leds ? 
+* Final considerations 
+
 
 Intro
 -----
@@ -35,8 +52,8 @@ There shouldn't be any major problem for following this tutorial with older vers
 
 #### Download files
 
-* Complete Quartus project [./2.blink-loanio.zip](./readme_files/2.blink-loanio.zip)  
-* Preloader for this project  [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)  (from community member Sysadmin)
+* Complete Quartus project [./2.blink-loanio.zip](./README_files/2.blink-loanio.zip)  
+* Preloader for this project  [./u-boot-with-spl.sfp](./README_files/u-boot-with-spl.sfp)  (from community member Sysadmin)
 
 
 Preparation
@@ -88,7 +105,7 @@ In System Contents,  double click to export on  Export field for the following e
 
 
 This is the final configuration for this tutorial:
-![](./readme_files/qsys_config.png)
+![](./README_files/qsys_config.png)
 
 File > Save
 
@@ -112,41 +129,43 @@ File > New > Verilog HDL File > Ok
 
 Paste the following Verilog code:   
 
-	module loanio_control (					
-				// define input / output parameters of the module
-				input wire 	[31:0] counter,		//counter input coming from the simple_counter module
-				input wire [66:0] loan_io_in,		//loan io inputs coming from soc_hps block
-				output wire [66:0] loan_io_out,	//loan io outputs going to soc_hps block
-				output wire [66:0] loan_io_oe		//loan io enable outputs going to soc_hps block
-				);
-				
-	//enable (1) the outputs which we are defined before (14, 22, 25, 32)
-	assign loan_io_oe[14] = 1'b1;
-	assign loan_io_oe[22] = 1'b1;
-	assign loan_io_oe[25] = 1'b1;
-	assign loan_io_oe[32] = 1'b1;
-	
-	//set the enable output value to zero for the rest of pins (this is just to avoid warnings from compiler)
-	assign loan_io_oe[13:0] = 14'b0;			
-	assign loan_io_oe[21:15] = 7'b0;	
-	assign loan_io_oe[24:23] = 2'b0;	
-	assign loan_io_oe[31:26] = 6'b0;	
-	assign loan_io_oe[66:33] = 34'b0;	
-	
-	//assign to each output loanio pin the value from the counter input
-	assign loan_io_out[14] = counter[22];
-	assign loan_io_out[22] = counter[23];
-	assign loan_io_out[25] = counter[24];
-	assign loan_io_out[32] = counter[25];
-	
-	//assign to rest of outputs a zero value (this is just to avoid warnings from compiler)
-	assign loan_io_out[13:0] = 14'b0;			
-	assign loan_io_out[21:15] = 7'b0;	
-	assign loan_io_out[24:23] = 2'b0;	
-	assign loan_io_out[31:26] = 6'b0;	
-	assign loan_io_out[66:33] = 34'b0;	
-	
-	endmodule						
+```
+module loanio_control (					
+			// define input / output parameters of the module
+			input wire 	[31:0] counter,		//counter input coming from the simple_counter module
+			input wire [66:0] loan_io_in,		//loan io inputs coming from soc_hps block
+			output wire [66:0] loan_io_out,	//loan io outputs going to soc_hps block
+			output wire [66:0] loan_io_oe		//loan io enable outputs going to soc_hps block
+			);
+			
+//enable (1) the outputs which we are defined before (14, 22, 25, 32)
+assign loan_io_oe[14] = 1'b1;
+assign loan_io_oe[22] = 1'b1;
+assign loan_io_oe[25] = 1'b1;
+assign loan_io_oe[32] = 1'b1;
+
+//set the enable output value to zero for the rest of pins (this is just to avoid warnings from compiler)
+assign loan_io_oe[13:0] = 14'b0;			
+assign loan_io_oe[21:15] = 7'b0;	
+assign loan_io_oe[24:23] = 2'b0;	
+assign loan_io_oe[31:26] = 6'b0;	
+assign loan_io_oe[66:33] = 34'b0;	
+
+//assign to each output loanio pin the value from the counter input
+assign loan_io_out[14] = counter[22];
+assign loan_io_out[22] = counter[23];
+assign loan_io_out[25] = counter[24];
+assign loan_io_out[32] = counter[25];
+
+//assign to rest of outputs a zero value (this is just to avoid warnings from compiler)
+assign loan_io_out[13:0] = 14'b0;			
+assign loan_io_out[21:15] = 7'b0;	
+assign loan_io_out[24:23] = 2'b0;	
+assign loan_io_out[31:26] = 6'b0;	
+assign loan_io_out[66:33] = 34'b0;	
+
+endmodule						
+```
 
 
 File > Save as >  loanio_control.v       (leave checked 'Add file to current project')
@@ -159,7 +178,7 @@ Symbol tool > libraries > Project/loanio_control > Ok, Insert block in the diagr
 
 Move the loanio_control block to the left of the soc_hps block and connect the bus wires ...out and ...oe as the image below.
 
-![](./readme_files/block-diagram.png)
+![](./README_files/block-diagram.png)
 
 Draw a bus line connected on the output port hps_0_h2f_loan_io_in of the soc_hps block, and leave the other end unconnected to the left of the block.  
 Select the created bus line > right click > properties > type loanio_in[66..0] as the bus name.  
@@ -213,7 +232,7 @@ What happened with the LOANIO user leds ?
 
 Assignment of the I/Os to HPS / FPGA is made during boot time in the preloader (SPL).  The preloader from the original SD card should be changed with a new one generated with the settings data from Quartus and the BSP editor app from Intel FPGA Embedded Command Shell (Intel SoC EDS (Embedded Development Suite) is required).
 
-If you just want to run this tutorial and see the four user leds blinking, just replace the preloader with this one already made ( file: [./u-boot-with-spl.sfp](./readme_files/u-boot-with-spl.sfp)). 
+If you just want to run this tutorial and see the four user leds blinking, just replace the preloader with this one already made ( file: [./u-boot-with-spl.sfp](./README_files/u-boot-with-spl.sfp)). 
 
 If you want to do the full process yourself and/or add other loanIO pins,  you should generate your own preloader. 
 

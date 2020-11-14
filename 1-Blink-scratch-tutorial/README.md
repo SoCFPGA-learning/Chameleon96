@@ -1,4 +1,19 @@
 # Blink from scratch in Chameleon96
+### Table of contents
+
+* Intro 
+		* Objective 
+		* Prerequisites 
+		* Considerations 
+		* Sources of information 
+		* Download files 
+* Quartus app 
+* Platform designer (Qsys) 
+		* Important step to avoid compiling errors 
+* Quartus app 
+* Programming the core into the FPGA 
+		* Configure hardware in linux (udev rules) 
+
 
 Intro
 -----
@@ -31,7 +46,7 @@ There shouldn't be any major problem for following this tutorial with older vers
 
 #### Download files
 
-* Complete Quartus project [./1.blink-scratch.zip](./readme_files/1.blink-scratch.zip)
+* Complete Quartus project [./1.blink-scratch.zip](./README_files/1.blink-scratch.zip)
 
 
 Quartus app
@@ -46,9 +61,9 @@ File > New project wizard
 
 
 File > New > Block Diagram/Schematic File 
-
+ 
 File > Save as >  blink.bdf
-
+ 
 File > New > Qsys System file		this opens Platform designer app
 
 Platform designer (Qsys)
@@ -76,7 +91,7 @@ System contents window:
 * memory > double click and delete "memory" from Export field
 
 
-![](./readme_files/qsys.png)
+![](./README_files/qsys.png)
 [![qsys.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/MSIf7iZDZDk8eHB0-qsys.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/MSIf7iZDZDk8eHB0-qsys.png>)
 
 File > Save as >  /blink/soc_hps.sys
@@ -103,26 +118,28 @@ Quartus app
 File > New > Verilog HDL File > Ok
 
 Paste following Verilog code:  
+ 
+```
+//It has a single clock input and a 32-bit output port
+module simple_counter (
+			CLOCK,
+			counter_out
+			);
+input 	CLOCK;
+output 	[31:0] counter_out;
+reg 	[31:0] counter_out;
 
-	//It has a single clock input and a 32-bit output port
-	module simple_counter (
-				CLOCK,
-				counter_out
-				);
-	input 	CLOCK;
-	output 	[31:0] counter_out;
-	reg 	[31:0] counter_out;
-	
-	always @ (posedge CLOCK)  	     		// on positive clock edge
-	begin
-	counter_out <= #1 counter_out + 1;		// increment counter
-	end
-	endmodule								// end of module counter
+always @ (posedge CLOCK)  	     		// on positive clock edge
+begin
+counter_out <= #1 counter_out + 1;		// increment counter
+end
+endmodule								// end of module counter
+```
 
 
 Menu File > Save as >  simple_counter.v
 
-![](./readme_files/counter_verilog.png)
+![](./README_files/counter_verilog.png)
 [![counter_verilog.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/urFMCwRMX1iIXkNN-counter_verilog.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/urFMCwRMX1iIXkNN-counter_verilog.png>)
 
 File > Create/Update > Create Symbol Files for Current File
@@ -133,7 +150,7 @@ Menu Project > Add/Remove files in project  > ...  > select ./soc_hps/synthesis/
 
 Go back to Block editor window (blink.bdf)  
 
-![](./readme_files/block-diagram-page.png)
+![](./README_files/block-diagram-page.png)
 [![block-diagram-page.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/14MZX4wD24cmrqiN-block-diagram-page.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/14MZX4wD24cmrqiN-block-diagram-page.png>)
 
 Symbol tool  >  libraries > Project/soc_hps/soc_hps > Ok,  Insert block in the diagram and press Esc key
@@ -147,7 +164,7 @@ Pin tool > Insert two output pins on the page
 
 
 Block diagram final schematic: 
-![](./readme_files/schematic.png)
+![](./README_files/schematic.png)
 [![schematic.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/q4veWW4zredPjrPj-schematic.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/q4veWW4zredPjrPj-schematic.png>)
 
 Draw a connection wire between soc_hps block output  "hps_0_h2f_user0_clock_clk"  and "CLOCK" input of the simple counter.
@@ -176,7 +193,7 @@ Assignments > Pin Planner
 * Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y219   > Location >  PIN_Y19
 
 
-![](./readme_files/pin_planner.png)
+![](./README_files/pin_planner.png)
 [![pin_planner.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/be4kfVy14vOLmM5L-pin_planner.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/be4kfVy14vOLmM5L-pin_planner.png>)
 
 File > close
@@ -218,7 +235,7 @@ Programming the core into the FPGA
 * Select the "SOCVHPS" and press the "Up" button so configuration should be like this:
 
 
-![](./readme_files/programmer.png)
+![](./README_files/programmer.png)
 [![programmer.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/Ot8pKNFfwhrlNbPl-programmer.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/Ot8pKNFfwhrlNbPl-programmer.png>)
 
 
@@ -232,9 +249,11 @@ For board detection I had to add following udev rules in linux shell:
 
 sudo nano /etc/udev/rules.d/81.fpga-altera.rules
 
-	# Intel FPGA Download Cable II
-	SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
-	SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+```
+# Intel FPGA Download Cable II
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+```
 
 
 sudo udevadm control --reload

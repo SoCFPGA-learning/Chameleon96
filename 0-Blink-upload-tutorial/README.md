@@ -1,4 +1,16 @@
 # Blink upload tutorial for totally newbees to Quartus and Chameleon96
+### Table of contents
+
+* Intro 
+		* Objective 
+		* Prerequisites 
+		* Considerations 
+		* Sources of information 
+		* Download files 
+* Preparation 
+* Steps for loading first blink example 
+* Final considerations 
+
 
 Intro
 -----
@@ -32,7 +44,7 @@ There shouldn't be any major problem for following this tutorial with older vers
 
 #### Download files
 
-* Binary core for blink example]([./CV_96_blink_Yo_Me.sof](./readme_files/CV_96_blink_Yo_Me.sof)) 
+* Binary core for blink example]([./CV_96_blink_Yo_Me.sof](./README_files/CV_96_blink_Yo_Me.sof)) 
 
 
 
@@ -43,9 +55,11 @@ For board detection I had to add following udev rules:
 
   sudo nano [/etc/udev/rules.d/81.fpga-altera.rules](file:///etc/udev/rules.d/81.fpga-altera.rules)
 
-	  # Intel FPGA Download Cable II
-	  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
-	  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+```
+  # Intel FPGA Download Cable II
+  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
+  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+```
 
 
   sudo udevadm control --reload
@@ -63,7 +77,7 @@ Steps for loading first blink example
 
   Shutdown linux properly from console (I got an error when trying to shutdown from graphical interface). 
   Access the linux console though HDMI output or from serial output with an USB-TTL cable. 
-
+  
 Pins B W G on board correspond to colors from usb-ttl included in the kit.
   B = Black (Ground), W = White (Rx), 	G = Green (Tx)
 	
@@ -106,7 +120,7 @@ Now a blue led in the board should be on indicating the programming usb blaster 
 * Select the "SOCVHPS" and press "Up" button so configuration should be like this:
 
 
-![](./readme_files/programmer-config.png)
+![](./README_files/programmer-config.png)
 
 
 * Finally press the "Start" button and after a few seconds you should have both leds (Wifi & BT) blinking ;)
