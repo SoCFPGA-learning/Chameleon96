@@ -12,7 +12,7 @@
 * Restore the SD image into another card to mess with it 
 * Generate the preloader / u-boot 
 	* Run the BSP editor 
-	* Process for u-boot included with EDS versions up to 19.0 
+	* Process for u-boot included with EDS versions below 19.1 
 	* Process for other u-boot versions and for EDS versions from 19.1 
 		* Download u-boot 
 		* Run QTS-filter 
@@ -171,7 +171,7 @@ sudo dd if=sd.img of=/dev/sdX bs=1M
 
 * Alternatively you can directly restore the image from a tar compressed file with this command:  
 
- 
+
 ```
 tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
 ```
@@ -211,9 +211,9 @@ bsp-editor
 * Exit the program.
 
 
-### Process for u-boot included with EDS versions up to 19.0
+### Process for u-boot included with EDS versions below 19.1
 
-Note: Following steps should be valid for SoC EDS Standard versions up to 19.0.
+Note: Following steps should be valid for SoC EDS Standard versions below 19.1.
 Note: If we want to use another version of u-boot jump to the next point.
 
 
