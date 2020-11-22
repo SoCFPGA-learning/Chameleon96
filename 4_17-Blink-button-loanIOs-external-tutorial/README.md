@@ -496,7 +496,7 @@ sudo dd if=u-boot.bin of=/dev/sdXY bs=64k seek=4
 External circuit schematic
 --------------------------
 
-To test the core we need to mount an external circuit with an led an a button, according to the following schematic:
+To test the core we need to mount an external circuit, according to the following schematic:
 
 
 ![](./README_files/blink-button-C96-schematic.png)
