@@ -1,4 +1,4 @@
-# Blink upload tutorial for totally newbees to Quartus and Chameleon96
+# Blink from scratch in Chameleon96
 ### Table of contents
 
 * Intro 
@@ -7,29 +7,31 @@
 	* Considerations 
 	* Sources of information 
 	* Download files 
-* Preparation 
-* Steps for loading first blink example 
-* Final considerations 
+* Quartus app starting
+* Platform designer (Qsys) 
+	* Important step to avoid compiling errors 
+* Quartus app 
+* Programming the core into the FPGA 
+	* Configure hardware in linux (udev rules) 
 
 
 Intro
 -----
 
 ### Objective
-
-Upload a ready made blink example core to your Chameleon96 board. 
+Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
 The leds used are the WIFI and the BT leds next to the USB ports in the Chameleon96 board.
 
 ### Prerequisites
 
-* [Chameleon96 board](https://www.96boards.org/product/chameleon96/)
+* Chameleon96 board
 * [Quartus lite sofware](https://fpgasoftware.intel.com/?edition=lite)
 
 
 ### Considerations
-This tutorial has been made with this software setup: 
+This tutorial has been made with this software setup:
 
-* OS Ubuntu 20.04. 
+* OS Ubuntu 20.04
 * Quartus lite 20.1
 
 
@@ -37,79 +39,192 @@ There shouldn't be any major problem for following this tutorial with older vers
 
 ### Sources of information
 
+* [My_First_HPS.pdf](https://www.terasic.com.tw/cgi-bin/page/archive_download.pl?Language=English&No=1046&FID=86a1c2f74b7ff8a8abf58d2b4689d4be) by Terasic
 * [Chameleon96 telegram group](https://t.me/Chameleon96)
-	* Note: credits for the very first blink code goes to our community member Yo_Me
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 
 
 ### Download files
 
-* Binary core for blink example]([./CV_96_blink_Yo_Me.sof](./README_files/CV_96_blink_Yo_Me.sof)) 
+* Complete Quartus project [./1.blink-scratch.zip](./README_files/1.blink-scratch.zip)
+
+
+Quartus app starting
+--------------------
+
+Launch the Quartus app.
+
+File > New project wizard
+
+* Next > choose folder and project name (e.g. blink), Next  > empty project, Next > Next >  
+* type 5CSEBA6U19I7  in name filter, Next > Next > Finish
+
+
+File > New > Block Diagram/Schematic File 
+ 
+File > Save as >  blink.bdf
+ 
+File > New > Qsys System file		this opens Platform designer app
+
+Platform designer (Qsys)
+------------------------
+
+System contents window > select clk_0 > right click > remove
+
+IP catalog > search "hps" > select "ArriaV/Cyclone V HPS" > Add
+
+ArriaV/Cyclone V HPS configuration window 
+
+* FPGA interfaces > uncheck Enable MPU ...
+* AXI Bridges > put all 3 to Unused
+* FPGA-to-HPS SDRAM Interface
+	* select  f2h_sdram0 and remove it with minus icon
+* HPS Clocks > Output clocks > HPS-to-FPGA User Clocks
+	* check Enable HPS-to-FPGA user 0 clock
+
+
+Finish to close window
+
+System contents window:
+
+* h2f_user0_clock >  double click on Export field
+* memory > double click and delete "memory" from Export field
+
+
+![](./README_files/qsys.png)
+[![qsys.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/MSIf7iZDZDk8eHB0-qsys.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/MSIf7iZDZDk8eHB0-qsys.png>)
+
+File > Save as >  /blink/soc_hps.sys
+
+Click Generate HDL button at bottom page
+
+* 'Create block symbol file' checked 
+* Output directory path > ../blink/soc_hps
+* Generate 
+* Close
+* Finish button
+* Ok
 
 
 
-Preparation
------------
+### Important step to avoid compiling errors
 
-For board detection I had to add following udev rules:
+Outside quartus and Qsys, open with a text editor the generated file /blink/soc_hps/synthesis/submodules/hps_sdram_p0.sdc,  remove all it's content and save it.
 
-  sudo nano [/etc/udev/rules.d/81.fpga-altera.rules](file:///etc/udev/rules.d/81.fpga-altera.rules)
 
+Quartus app development
+-----------------------
+
+File > New > Verilog HDL File > Ok
+
+Paste following Verilog code:  
+ 
 ```
-  # Intel FPGA Download Cable II
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
-  SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+//It has a single clock input and a 32-bit output port
+module simple_counter (
+			CLOCK,
+			counter_out
+			);
+input 	CLOCK;
+output 	[31:0] counter_out;
+reg 	[31:0] counter_out;
+
+always @ (posedge CLOCK)  	     		// on positive clock edge
+begin
+counter_out <= #1 counter_out + 1;		// increment counter
+end
+endmodule								// end of module counter
 ```
 
 
-  sudo udevadm control --reload
+Menu File > Save as >  simple_counter.v
 
-Steps for loading first blink example
--------------------------------------
+![](./README_files/counter_verilog.png)
+[![counter_verilog.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/urFMCwRMX1iIXkNN-counter_verilog.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/urFMCwRMX1iIXkNN-counter_verilog.png>)
 
-
-* Power up the board with original SD inserted
-
+File > Create/Update > Create Symbol Files for Current File
 
 
-* Shutdown linux (recommended step by community member Sysadmin)
+Menu Project > Add/Remove files in project  > ...  > select ./soc_hps/synthesis/soc_hps.qip, click  Open > Ok
 
 
-  Shutdown linux properly from console (I got an error when trying to shutdown from graphical interface). 
-  Access the linux console though HDMI output or from serial output with an USB-TTL cable. 
-  
-Pins B W G on board correspond to colors from usb-ttl included in the kit.
-  B = Black (Ground), W = White (Rx), 	G = Green (Tx)
-	
-From host computer:  
-picocom -b 115200 /dev/ttyUSB0   
-  login: root  
-  shutdown -h now
+Go back to Block editor window (blink.bdf)  
+
+![](./README_files/block-diagram-page.png)
+[![block-diagram-page.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/14MZX4wD24cmrqiN-block-diagram-page.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/14MZX4wD24cmrqiN-block-diagram-page.png>)
+
+Symbol tool  >  libraries > Project/soc_hps/soc_hps > Ok,  Insert block in the diagram and press Esc key
+
+Symbol tool > libraries > Project/simple_counter > Ok, Insert block in the diagram and press Esc key
+
+Pin tool > Insert two output pins on the page  
+
+* Double click on pin_name1  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y20  
+* Double click on pin_name2  > pin name > type FPGA_2V5_RF_LEDS_LED2_PIN_Y19
+
+
+Block diagram final schematic: 
+![](./README_files/schematic.png)
+[![schematic.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/q4veWW4zredPjrPj-schematic.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/q4veWW4zredPjrPj-schematic.png>)
+
+Draw a connection wire between soc_hps block output  "hps_0_h2f_user0_clock_clk"  and "CLOCK" input of the simple counter.
+
+Draw a bus line connected on the output of the simple_counter output port, and leave the other end unconnected to the right of the simple_counter.
+Select the created bus line > right click > properties > type counter [31..0] as the bus name.  
+
+Note: The notation [X..Y] is the Quartus II method for specifying the bus width in BDF schematics, where X is the most significant bit (MSB) and Y is the least significant bit (LSB).
+
+Draw a wire connected on the left of both output pins, and leave the other end unconnected.
+Select the  first line > right click > properties > type counter [26] as the node name.
+Select the  second  line > right click > properties > type counter [24] as the node name.
+
+Note:  Without SD card inserted, HPS clock frequency is 25 MHz (100 MHz with original SD inserted)
+To calculate the time period (T) of the blinking you have to calculate like this:       2*1/((25000000/(2^26)))  
+where 25 corresponds to the 25 MHz and 26 is the bit of the counter we typed in the output pin  (counter[26])
+
+File > Save
+
+In preparation for pin assignments:
+Processing > Start > Start Analysis & Elaboration 
+
+Assignments > Pin Planner
+
+* Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y20    > Location >  PIN_Y20
+* Bottom table >   FPGA_2V5_RF_LEDS_LED2_PIN_Y219   > Location >  PIN_Y19
+
+
+![](./README_files/pin_planner.png)
+[![pin_planner.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/be4kfVy14vOLmM5L-pin_planner.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/be4kfVy14vOLmM5L-pin_planner.png>)
+
+File > close
+
+And finally...
+
+Processing  >  Start compilation
+
+If all is ok it should return following message: Quartus Prime Full Compilation was successful. 0 errors, xx warnings.
+
+
+Programming the core into the FPGA
+----------------------------------
+
+
+* Power up the board (without the SD card inserted).
+
 
 
 * Connect the micro usb cable to the Blaster usb port (next to the black low speed expansion port)
 
 
 
-* Run Quartus software  (binary is in the installation folder .../intelFPGA_lite/20.1/quartus/bin/quartus   in my setup)
+* Tools > Programmer
+	* Now a blue led in the board should be on indicating the programming usb blaster cable is connected and ready to go.
 
-
-
-* Open the programmer (Tools menu > Programmer)
-
-
-Now a blue led in the board should be on indicating the programming usb blaster cable is connected and ready to go.
 
 
 * Hardware Setup... > Hardware Settings
-
-
-  In available hardware items shoud show up the "Arrow 96 CV SoC Board". Double click on it and press Close button.
-  If no hardware is detected double check the udev rules.
-  Check also output from command .../quartus/bin/jtagconfig -d
-
-
-* Add File...   load the .sof blink example
+	* In available hardware items should show up the "Arrow 96 CV SoC Board". Double click on it and press Close button. 
+	* If no hardware is detected then you have to configure the udev rules (see below)
 
 
 
@@ -117,22 +232,31 @@ Now a blue led in the board should be on indicating the programming usb blaster 
 
 
 
-* Select the "SOCVHPS" and press "Up" button so configuration should be like this:
+* Select the "SOCVHPS" and press the "Up" button so configuration should be like this:
 
 
-![](./README_files/programmer-config.png)
+![](./README_files/programmer.png)
+[![programmer.png](<https://docs.raetro.com/uploads/images/gallery/2020-10/scaled-1680-/Ot8pKNFfwhrlNbPl-programmer.png)](https://docs.raetro.com/uploads/images/gallery/2020-10/Ot8pKNFfwhrlNbPl-programmer.png>)
 
 
-* Finally press the "Start" button and after a few seconds you should have both leds (Wifi & BT) blinking ;)
+* Finally press the "Start" button and after progress is 100% (successful) you should have both leds (Wifi & BT) blinking  ;)  at different frequencies.
 
 
-Final considerations
---------------------
+
+### Configure hardware in linux (udev rules)
+
+For board detection I had to add following udev rules in linux shell:
+
+sudo nano /etc/udev/rules.d/81.fpga-altera.rules
+
+```
+# Intel FPGA Download Cable II
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6010", MODE="0666"
+SUBSYSTEMS=="usb", ATTRS{idVendor}=="09fb", ATTRS{idProduct}=="6810", MODE="0666"
+```
 
 
-* You can now power down the board
-* Next time you power up the board it will load linux normally (because u-boot reprograms the FPGA with the default file CV96.rbf from SD card and linux is loaded)
-* It is possible to convert the blink project into rbf format and substitute CV96.rbf in the SD card so the board will always start with the blinking program.
-* It is possible to program the FPGA without inserting SD card on startup (in this case the blinking frecuency will be slower).
+sudo udevadm control --reload
+
 
 
