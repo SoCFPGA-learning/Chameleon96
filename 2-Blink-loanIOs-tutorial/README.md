@@ -30,7 +30,7 @@ Intro
 ### Prerequisites
 
 * Chameleon96 board
-* Quartus lite software
+* [Quartus lite sofware](https://fpgasoftware.intel.com/?edition=lite)
 
 
 ### Considerations
@@ -44,7 +44,7 @@ There shouldn't be any major problem for following this tutorial with older vers
 
 ### Sources of information
 
-* [Blink from scratch tutorial](https://github.com/somhi/kameleon96/tree/master/1-blink-scratch-tutorial) 
+* [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)   (Blink from scratch tutorial)
 * [Rætro's docs](https://docs.raetro.com/books/arrow-chameleon96/page/overview) 
 * [Chameleon96 telegram group](https://t.me/Chameleon96)
 	* Note: credits for the very first loanio blink code goes to our community member Sysadmin
@@ -64,14 +64,14 @@ We will start from were we left it in the previous example from this series: [Bl
 From a file browser, copy the folder containing all the code of the previous tutorial into another folder and rename it to e.g. "blink-loanio".
 
 
-Quartus app
------------
+Quartus app starting
+--------------------
 
 Launch the Quartus app.
 
 Open the project file: File > Open project > browse inside folder you copied in previous step > select .qpf file (e.g. blink.qpf) > Open
 
-Open the platform designer file: File > Open > select "soc_hps.qsys" created in previous tutorial > Open
+Open the platform designer file: File > Open > select "soc_hps.qsys"  > Open
 
 
 Platform designer (Qsys)
@@ -93,9 +93,17 @@ We are going to activate two functionalities that are needed in further steps fo
 
 Now, in the Peripherals Mux Table, we will select the pins that we want to use with the FPGA.
 
-* Click on buttons LOANIO14, LOANIO22, LOANIO25, LOANIO32 which correspond to the pins assigned to the four user leds in the Chameleon96 board, according to it's schematic. Clicking on these buttons we will change the current assigment from the HPS system (ARM processors) to the FPGA side.
+* Click on buttons LOANIO14, LOANIO22, LOANIO25, LOANIO32 which correspond to the pins assigned to the four user leds in the Chameleon96 board, according to it's schematic. Clicking on these buttons we will change the current assigment from the HPS system (ARM processors) to the FPGA side. 
 
-Close the parameter window.
+Close the parameter window.  
+
+Follows correspondence of each loanIO with its pin location and user led number:
+
+* LOANIO14	-J11	user led 3
+* LOANIO22 	-H11	user led 2
+* LOANIO25   	-G10	user led 1
+* LOANIO32   	-F11	user led 0
+
 
 In System Contents,  double click to export on  Export field for the following elements:
 
@@ -113,10 +121,10 @@ Click Generate HDL button at bottom page > Generate > Close
 
 Click Finish button 
 
-Quartus app
------------
+Quartus app development
+-----------------------
 
-Back in Quartus app, you should have already open in the block editor the file "blink.bdf".  
+Back in Quartus app, you should have already opened in the block editor the file "blink.bdf".  
 
 Left click on the soc_hps to move the block to the left, so we have enough space when we update the block.
 Also move output pins from previous tutorial to the right.  
