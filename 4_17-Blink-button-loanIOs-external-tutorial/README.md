@@ -45,13 +45,13 @@ This tutorial has been made with this software setup:
 
 There shouldn't be any major problem for following this tutorial with other versions of Quartus and/or if you are on Windows OS.  
 
-**Note: From now on the tutorials will have less explanations and contain more technical detail as you should have enough level to develop yourself if you followed the previous tutorials.  **
+**Note: From now on the tutorials will have less explanations and contain more technical detail as you should have enough level to develop yourself if you followed the previous tutorials.**
 
 For more explanations check previous tutorials.
 
-**Note: Adapt suggested filenames as per your convenience.  **
+**Note: Adapt suggested filenames as per your convenience.**
 
-**Note: The aim of this tutorial is just to be able to program the FPGA with your cores. Keep in mind that would surely loose access to the linux part as configuring the right parameters in Qsys / u-boot is out of the scope of this tutorial. Returning the linux functionality is easy if you have a backup of the u-boot partition and restore it afterwards (see previous tutorial).**
+**Note: The aim of this tutorial is just to be able to program the FPGA with your cores. Keep in mind that you would surely loose access to the Linux part as configuring the right parameters in Qsys / U-boot is out of the scope of this tutorial. Returning the Linux functionality is easy if you have a backup of the u-boot partition and restore it afterwards (see previous tutorial).**
 
 ### Sources of information
 
