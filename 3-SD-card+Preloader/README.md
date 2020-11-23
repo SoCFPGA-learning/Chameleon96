@@ -171,7 +171,7 @@ sudo dd if=sd.img of=/dev/sdX bs=1M
 
 * Alternatively you can directly restore the image from a tar compressed file with this command:  
 
-
+ 
 ```
 tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
 ```
@@ -319,7 +319,7 @@ Then go into your u-boot folder and compile it:
 ```
 cd u-boot-socfpga/
 make socfpga_cyclone5_defconfig
-make  -j 24
+make -j$(nproc)
 ```
 
 
