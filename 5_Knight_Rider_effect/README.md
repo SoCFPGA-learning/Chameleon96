@@ -1,4 +1,4 @@
-# Blink Knight Rider effect
+# Knight Rider 8 led effect
 
 Intro
 -----
@@ -15,8 +15,9 @@ Intro
 ### Considerations
 This tutorial has been made with this software setup:
 
-* OS Ubuntu 20.04
 * Quartus lite & EDS 17.1
+
+  There shouldn't be any major problem for following this tutorial with other versions of Quartus.
 
 ### Sources of information
 
@@ -27,7 +28,7 @@ This tutorial has been made with this software setup:
 
 ### Download files
 
-* Complete Quartus project [5.blink-knight-rider-levelshifter.zip](./5.blink-knight-rider-levelshifter.zip)  (Inside folder you can find the preloader file used for this example (preloader-mkpimage.bin))
+* Complete Quartus project [5.blink-knight-rider-levelshifter.zip](./5.blink-knight-rider-levelshifter.zip)  
 * Knight rider verilog code [knigh_rider.v](./knigh_rider.v) by Miguel Angel Rodriguez Jodar (read license inside file)
 * txs0108e datasheet [txs0108e.pdf](./txs0108e.pdf)
 
@@ -38,13 +39,13 @@ Quartus & Qsys project
 
 I'm using the previous project tutorial number 4 as a template.
 
-Platform designer (Qsys) project did not change.
+Platform designer (Qsys) project did not change. Inside project folder you can find the preloader file used for this example (preloader-mkpimage.bin).
 
-Added knight_rider Verlog file to the project, converted it to a block and inserted in the top block diagram "blink.bdf".  Connected the clock input signal. 
+Added knight_rider Verilog file to the project, converted it to a block and inserted it in the top block diagram "blink.bdf".  Connected the clock input signal. 
 
 Modified the loanio_control block to accept the 8 array output signal from the knight_rider block.
 
-Inside loanio_control the 8 led signals are assigned to the LS connector loanIO pins. Check code to know the exact pins assigned.
+Inside loanio_control the 8 led signals are assigned to the LS connector loanIO pins. Check loanio_control.v code to know the exact pins assigned.
 
 
 
