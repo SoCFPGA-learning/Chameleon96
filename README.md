@@ -11,11 +11,11 @@ Most of the examples and tutorials shown here should be highly compatible with a
 The folders contain the following information:
 
 * **Tutorials**: Basic tutorials for learning how to use Quartus (Block diagram editor and Verilog code editor), Platform designer (Qsys), Intel SoC EDS (Embedded Development Suite).
-  * 0. Upload a ready made blink example core. 
-  * 1. Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
-  * 2. Design and compile an FPGA core using the LOAN I/O function to use I/O normally assigned to the HPS from the FPGA side.
-  * 3. Working with the SD card and preloader generation .
-  * 4. Design and compile an FPGA core using the LOAN I/O function to use pins from the low speed 40 pin connector (an external button is used to switch on leds).
+  * Upload a ready made blink example core. 
+  * Design and compile from scratch your very first FPGA core consisting of two led blinks at different frequencies. 
+  * Design and compile an FPGA core using the LOAN I/O function to use I/O normally assigned to the HPS from the FPGA side.
+  * Working with the SD card and preloader generation .
+  * Design and compile an FPGA core using the LOAN I/O function to use pins from the low speed 40 pin connector (an external button is used to switch on leds).
 
 * **Projects**: Contains different interesting projects
 
