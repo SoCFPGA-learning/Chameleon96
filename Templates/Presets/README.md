@@ -19,7 +19,7 @@ Follow these steps from a file explorer:
 * Copy the presets file inside the [/ip/presets/](file:///ip/presets) folder. This file contains the preset settings for the Chameleon96 board.
 
 If Qsys is still open, close it.  
-From Quartus open the platform designer file: File > Open > select "soc_hps.qsys" > Open
+From Quartus open the platform designer file: File > Open > select "soc_hps.qsys" (replace it with your own name) > Open
 
 * Select View menu > Presets
 * Select the preset file from the Project tree and press "Apply" button
