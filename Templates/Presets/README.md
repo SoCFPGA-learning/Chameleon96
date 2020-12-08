@@ -1,4 +1,4 @@
-# Preloaders for Chameleon96 board
+# Presets for Chameleon96 board
 
 See below how to load the presets into Platform Designer (Qsys).
 
