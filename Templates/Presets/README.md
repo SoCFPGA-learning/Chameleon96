@@ -2,7 +2,7 @@
 
 See below how to load the presets into Platform Designer (Qsys).
 
-This folders contains the following preset configuration files:
+This folder contains the following preset configuration files:
 
 * DDR3_c96_Preset_1.qprs
   * It contains the memory presets for the Chameleon96 board
