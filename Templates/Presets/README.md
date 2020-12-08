@@ -9,11 +9,8 @@ This folders contains the following preset configuration files:
 
 
 
-Load memory preset settings for Chameleon96 board (Qsys)
+Load preset settings for Chameleon96 board (Qsys)
 --------------------------------------------------------
-
-This point explains how to configure the memory settings of the Chameleon96 board into the platform designer. 
-We will load a presets file which has proven to work.  
 
 Follow these steps from a file explorer:
 
