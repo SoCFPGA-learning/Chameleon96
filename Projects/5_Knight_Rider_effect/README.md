@@ -29,7 +29,7 @@ This tutorial has been made with this software setup:
 ### Download files
 
 * Complete Quartus project [5.blink-knight-rider-levelshifter.zip](./5.blink-knight-rider-levelshifter.zip)  
-* Knight rider verilog code [knigh_rider.v](./knigh_rider.v) by Miguel Angel Rodriguez Jodar (read license inside file)
+* Knight rider Verilog code [knigh_rider.v](./knigh_rider.v) by Miguel Angel Rodriguez Jodar (read license inside file)
 * txs0108e datasheet [txs0108e.pdf](./txs0108e.pdf)
 
 
