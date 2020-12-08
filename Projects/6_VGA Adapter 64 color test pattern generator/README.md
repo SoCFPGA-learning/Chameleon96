@@ -50,10 +50,10 @@ External circuit schematic
 
 To test the core we need to mount an external circuit, adapting the following schematic to your circuit. 
 
-![](./schematic.jpg)
+![](./schematic.jpg)  
 Schematic courtesy of Jaime Perez. 
 
 ![](./vga-03.png)
 
-If you want to connect dupont wired directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wire in the following rows.
+If you want to connect dupont wires directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wire in the following rows.
 
