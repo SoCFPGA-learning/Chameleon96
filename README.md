@@ -24,10 +24,12 @@ The folders contain the following information:
 
 * **Templates**
 
-  * Project Templates: Contains Quartus project templates
+  * Project Templates: Quartus project templates
 
-  * Preloaders: Contain ready made preloaders
+  * Preloaders: ready made preloaders
 
+  * Presets: Qsys preset configurations for Chameleon96 board 
+  
     
 
 **Useful sites with info about the Chameleon96 board:**

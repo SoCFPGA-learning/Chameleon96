@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ip>
+ <presets version="12.1">
+  <preset name="DDR3_c96_Preset_1" kind="altera_hps" version="All" description="">
+   <parameter name="DEVICE_DEPTH" value="1" />
+   <parameter name="MEM_VOLTAGE" value="1.35V DDR3L" />
+   <parameter name="TIMING_BOARD_DERATE_METHOD" value="AUTO" />
+   <parameter name="MEM_TWTR" value="4" />
+   <parameter name="MEM_IF_DM_PINS_EN" value="true" />
+   <parameter name="USE_MEM_CLK_FREQ" value="false" />
+   <parameter name="TIMING_TQSH" value="0.4" />
+   <parameter name="MEM_TRFC_NS" value="260.0" />
+   <parameter name="MEM_COL_ADDR_WIDTH" value="10" />
+   <parameter name="MEM_TRCD_NS" value="13.91" />
+   <parameter name="TIMING_BOARD_AC_TO_CK_SKEW" value="0.0" />
+   <parameter name="TIMING_BOARD_SKEW_WITHIN_DQS" value="0.01" />
+   <parameter name="MEM_CK_WIDTH" value="1" />
+   <parameter name="TIMING_TDQSS" value="0.27" />
+   <parameter name="TIMING_TIS" value="65" />
+   <parameter name="TIMING_TDQSQ" value="85" />
+   <parameter name="TIMING_BOARD_SKEW_CKDQS_DIMM_MIN" value="0.09" />
+   <parameter name="TIMING_BOARD_MAX_CK_DELAY" value="0.03" />
+   <parameter name="MEM_RTT_NOM" value="RZQ/4" />
+   <parameter name="MEM_BANKADDR_WIDTH" value="3" />
+   <parameter name="MEM_SRT" value="Normal" />
+   <parameter name="MEM_ASR" value="Manual" />
+   <parameter name="TIMING_BOARD_SKEW_CKDQS_DIMM_MAX" value="0.16" />
+   <parameter name="MEM_CLK_FREQ_MAX" value="933.333" />
+   <parameter name="TIMING_BOARD_DQ_TO_DQS_SKEW" value="0.0" />
+   <parameter name="MEM_BL" value="OTF" />
+   <parameter name="MEM_WTCL" value="5" />
+   <parameter name="TIMING_TDS" value="70" />
+   <parameter name="MEM_TRAS_NS" value="34.0" />
+   <parameter name="REF_CLK_FREQ" value="25.0" />
+   <parameter name="MEM_TFAW_NS" value="35.0" />
+   <parameter name="MEM_BT" value="Sequential" />
+   <parameter name="TIMING_TDH" value="75" />
+   <parameter name="MEM_ROW_ADDR_WIDTH" value="15" />
+   <parameter name="MEM_TREFI_US" value="7.8" />
+   <parameter name="TIMING_TDSS" value="0.18" />
+   <parameter name="TIMING_TIH" value="110" />
+   <parameter name="MEM_TCL" value="6" />
+   <parameter name="TIMING_TDQSCK" value="195" />
+   <parameter name="MEM_TRTP_NS" value="7.5" />
+   <parameter name="MEM_RTT_WR" value="RZQ/4" />
+   <parameter name="TIMING_TQH" value="0.38" />
+   <parameter name="TIMING_BOARD_MAX_DQS_DELAY" value="0.02" />
+   <parameter name="HPS_PROTOCOL" value="DDR3" />
+   <parameter name="TIMING_BOARD_SKEW_BETWEEN_DQS" value="0.08" />
+   <parameter name="MEM_TWR_NS" value="15.0" />
+   <parameter name="MEM_FORMAT" value="DISCRETE" />
+   <parameter name="MEM_DRV_STR" value="RZQ/7" />
+   <parameter name="MEM_IF_DQSN_EN" value="true" />
+   <parameter name="MEM_PD" value="DLL off" />
+   <parameter name="TIMING_BOARD_AC_SKEW" value="0.03" />
+   <parameter name="TIMING_TDSH" value="0.18" />
+   <parameter name="MEM_TRP_NS" value="13.91" />
+   <parameter name="TIMING_BOARD_ISI_METHOD" value="AUTO" />
+   <parameter name="MEM_CLK_FREQ" value="466.666667" />
+   <parameter name="MEM_MIRROR_ADDRESSING" value="0" />
+   <parameter name="MEM_VENDOR" value="Micron" />
+   <parameter name="MEM_TINIT_US" value="500" />
+   <parameter name="MEM_TMRD_CK" value="4" />
+   <parameter name="MEM_TRRD_NS" value="6.0" />
+   <parameter name="MEM_DQ_WIDTH" value="16" />
+  </preset>
+ </presets>
+</ip>
