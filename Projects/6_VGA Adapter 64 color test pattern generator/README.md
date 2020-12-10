@@ -71,12 +71,12 @@ Expected monitor output
 External circuit schematic
 --------------------------
 
-To test the core we need to mount an external circuit, adapting the following schematic to your circuit. 
+To test the core we need to mount an external circuit following this schematic courtesy of Jaime Pérez: 
 
 ![](./schematic.jpg)  
-Schematic courtesy of Jaime Pérez. 
-
 ![](./vga-03.png)
 
 If you want to connect Dupont wires directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wires in the following rows as shown in this image.
 
+Follows how it looks my test circuit:
+![](./hardware.png)
