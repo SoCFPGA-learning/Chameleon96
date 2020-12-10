@@ -30,7 +30,7 @@ This tutorial has been made with this software setup:
 
 ### Download files
 
-* Complete Quartus project [6.2.c96-vgaretro-pll-test.zip](./6.2.c96-vgaretro-pll-test.zip)  
+* Complete Quartus project [6.1.c96-vgac96-pll-test.zip](./6.1.c96-vgac96-pll-test.zip)  
 * VGA_C96 Verilog code [VGA_C96.v](./VGA_C96.v) by Antonio Sánchez
 
 
