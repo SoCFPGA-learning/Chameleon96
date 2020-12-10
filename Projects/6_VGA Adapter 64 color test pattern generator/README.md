@@ -78,5 +78,5 @@ To test the core we need to mount an external circuit following this schematic c
 
 If you want to connect Dupont wires directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wires in the following rows as shown in this image.
 
-Follows how it looks my test circuit:
+Follows how it looks like my test circuit:  
 ![](./hardware.png)
