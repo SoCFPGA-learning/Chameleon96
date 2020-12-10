@@ -29,7 +29,7 @@ The folders contain the following information:
   * Presets: Qsys preset configurations for Chameleon96 board 
   
 * **Documents**
-  * Contains various useful documentation (c96 schematics, DE10-Nano my first fpga tutorial, ...)
+  * Contains various useful documentation (c96 schematics, images, DE10-Nano my first fpga tutorial, ...)
 
 **Useful sites with info about the Chameleon96 board:**
 
