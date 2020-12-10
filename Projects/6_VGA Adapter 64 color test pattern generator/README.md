@@ -6,8 +6,7 @@ Intro
 ### Objective
 
 * Build a custom made 6 bit VGA adapter and test it with the Chameleon96 board
-  
-* Code used for the test is VGA_C96 by Antonio Sánchez
+* Code used for the test is VGA_C96 by Antonio Sánchez (Pixel freq. 12 MHz, Resolution  320x480)
 
 
 ### Considerations
@@ -31,9 +30,12 @@ This tutorial has been made with this software setup:
 ### Download files
 
 * Complete Quartus project [6.1.c96-vgac96-pll-test.zip](./6.1.c96-vgac96-pll-test.zip)  
-* VGA_C96 Verilog code [VGA_C96.v](./VGA_C96.v) by Antonio Sánchez
 
+* VGA_C96 Verilog code [VGA_C96.v](./VGA_C96.v) by Antonio Sánchez (Pixel freq. 12 MHz, Resolution  320x480)
 
+* VGA_C96 Verilog code [VGA_C96_3.v](./VGA_C96_3.v) by Antonio Sánchez (Pixel freq. 25 MHz, Resolution  640x480)
+
+  
 
 Quartus & Qsys project
 --------------------
@@ -44,7 +46,7 @@ Platform designer (Qsys) project did not change. Inside project folder you can f
 
 Added Altera PLL as descrived in Documents/My_first_fpgaDE10-Nano  tutorial with a desired frequency of 12 MHz. **Note: It is better to add a PLL in quartus to set an exact frequency than changing HPS output frequency parameters in Qsys.**
 
-Added VGA_C96.v Verilog file to the project, converted it to a block and inserted it in the top block diagram "blink.bdf".  Connected the clock input signal from the PLL.
+Added [VGA_C96.v](./VGA_C96.v)  Verilog file to the project, converted it to a block and inserted it in the top block diagram "blink.bdf".  Connected the clock input signal from the PLL.
 
 Modified the loanio_control block to accept the output signals from the VGA_C96 block.
 
@@ -60,8 +62,6 @@ Inside loanio_control the 8 signals (2 red, 2 Blue, 2 Green, 2 Sync) are assigne
 | assign loan_io_out[29] = GREEN[0]; | //pin 30 | G1     | 200 Ohm  |
 | assign loan_io_out[28] = RED[1];   | //pin 32 | R0     | 390 Ohm  |
 | assign loan_io_out[30] = RED[0];   | //pin 34 | R1     | 200 Ohm  |
-
-
 
 Expected monitor output
 --------------------------
@@ -80,3 +80,19 @@ If you want to connect Dupont wires directly to the VGA connector take a bit of 
 
 Follows how it looks like my test circuit:  
 ![](./hardware.png)
+
+
+
+
+
+640 x 480 test
+--------------------------
+
+Modify properties of Altera PLL with a desired frequency of 25.175 MHz.
+
+Replace content of VGA_C96.v Verilog file in the project with the contents of [VGA_C96_3.v](./VGA_C96_3.v) (Pixel freq. 25 MHz, Resolution  640x480).
+
+Compile and upload new core.
+
+
+--------------------------
