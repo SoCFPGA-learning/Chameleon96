@@ -1,7 +1,10 @@
 //////////////////////////////////////////////////////////////////////////////////
-// VGA 64 colors test
+// VGA 64 colors test   v2
 // Antonio Sánchez
 // for the Chameleon 96 Group
+//
+// Pixel freq. 12 MHz 
+// Resolution  320x480
 //////////////////////////////////////////////////////////////////////////////////
 
 //http://tinyvga.com/vga-timing/640x480@60Hz
@@ -26,18 +29,18 @@
 //Back porch	33	1.0486593843098
 //Whole frame	525	16.683217477656
 
-//For a 12.05MHz Clock we try divide by 2
+//For a 12 MHz Clock we try divide by 2
 `define VisibleX    320
 `define FrontX      8
 `define SyncX       48
 `define BackX       24
-`define TotalX      400
+`define TotalX      400-1
 
 `define VisibleY    480
 `define FrontY      10
 `define SyncY       2
 `define BackY       33
-`define TotalY      525
+`define TotalY      525-1
 
 module VGA_C96(
     input wire  clk12,
@@ -54,15 +57,15 @@ reg [5:0] Color=0;
 assign hsync=(CounterX>(`BackX+`VisibleX+`FrontX-1)) ?1'h0:1'h1;
 assign vsync=(CounterY>(`VisibleY+`FrontY-1)) && (CounterY<(`VisibleY+`FrontY+`SyncY)) ?1'h0:1'h1;
 
-assign visible=(CounterX>=`BackX && CounterX<=`BackX+`VisibleX)
-                && (CounterY>=`BackY && CounterY<=`BackY+`VisibleY);
+wire visible=(CounterX>=`BackX && CounterX<=`BackX+`VisibleX)
+                && (CounterY>=`FrontY && CounterY<=`FrontY+`VisibleY);
 assign red=(visible)?Color[5:4]:0;
 assign green=(visible)?Color[3:2]:0;
 assign blue=(visible)?Color[1:0]:0;
 
 always  @(posedge clk12)begin
     Color[2:0]<=((CounterX-`BackX)/40);
-    Color[5:3]<=((CounterY-`BackY)/60);
+	Color[5:3]<=((CounterY-`FrontY)/60);
     if (CounterX==`TotalX) begin
         CounterX<=0;
         CounterY<=CounterY+1'b1;
@@ -79,5 +82,4 @@ always  @(posedge clk12)begin
 end
 
 endmodule
-
 

@@ -37,7 +37,7 @@ This tutorial has been made with this software setup:
 Quartus & Qsys project
 --------------------
 
-I'm using the previous project tutorial number 4 as a template.
+I used the project tutorial number 4 as a template.
 
 Platform designer (Qsys) project did not change. Inside project folder you can find the preloader file used for this example (preloader-mkpimage.bin).
 

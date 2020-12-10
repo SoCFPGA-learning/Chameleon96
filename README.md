@@ -16,12 +16,10 @@ The folders contain the following information:
   * Design and compile an FPGA core using the LOAN I/O function to use I/O normally assigned to the HPS from the FPGA side.
   * Working with the SD card and preloader generation .
   * Design and compile an FPGA core using the LOAN I/O function to use pins from the low speed 40 pin connector (an external button is used to switch on leds).
-
 * **Projects**: Contains different interesting projects
 
   * Knight Rider led effect
   * VGA Adapter 64 color test pattern generator
-
 * **Templates**
 
   * Project Templates: Quartus project templates
@@ -30,7 +28,8 @@ The folders contain the following information:
 
   * Presets: Qsys preset configurations for Chameleon96 board 
   
-    
+* **Documents**
+  * Contains various useful documentation (c96 schematics, DE10-Nano my first fpga tutorial, ...)
 
 **Useful sites with info about the Chameleon96 board:**
 

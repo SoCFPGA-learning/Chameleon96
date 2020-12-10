@@ -25,6 +25,7 @@ This tutorial has been made with this software setup:
 * [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
 * https://github.com/Alhambra-bits/AP-VGA
 * https://github.com/Obijuan/Cuadernos-tecnicos-FPGAs-libres/wiki/CT.2:-VGA-Retro:-Puesta-en-marcha.-MonsterLED
+* http://www.javiervalcarce.eu/html/vga-signal-format-timming-specs-en.html
 
 
 ### Download files
@@ -37,13 +38,35 @@ This tutorial has been made with this software setup:
 Quartus & Qsys project
 --------------------
 
-I'm using the project template T01 from /Templates/Project_templates folder.
+I used the project tutorial number 4 as a template.
+
+Platform designer (Qsys) project did not change. Inside project folder you can find the preloader file used for this example (preloader-mkpimage.bin).
+
+Added Altera PLL as descrived in Documents/My_first_fpgaDE10-Nano  tutorial with a desired frequency of 12 MHz. **Note: It is better to add a PLL in quartus to set an exact frequency than changing HPS output frequency parameters in Qsys.**
+
+Added VGA_C96.v Verilog file to the project, converted it to a block and inserted it in the top block diagram "blink.bdf".  Connected the clock input signal from the PLL.
+
+Modified the loanio_control block to accept the output signals from the VGA_C96 block.
+
+Inside loanio_control the 8 signals (2 red, 2 Blue, 2 Green, 2 Sync) are assigned to the LS connector loanIO pins. See below code from loanio_control.v assigning signals to external pins on low speed connector.
+
+| //LS_Connector                     | LS_PIN   | SIGNAL | RESISTOR |
+| ---------------------------------- | -------- | ------ | -------- |
+| assign loan_io_out[48] = vsync;    | //pin 29 | VS     | 100 Ohm  |
+| assign loan_io_out[17] = hsync;    | //pin 25 | HS     | 100 Ohm  |
+| assign loan_io_out[19] = BLUE[1];  | //pin 23 | B0     | 390 Ohm  |
+| assign loan_io_out[33] = BLUE[0];  | //pin 24 | B1     | 200 Ohm  |
+| assign loan_io_out[34] = GREEN[1]; | //pin 26 | G0     | 390 Ohm  |
+| assign loan_io_out[29] = GREEN[0]; | //pin 30 | G1     | 200 Ohm  |
+| assign loan_io_out[28] = RED[1];   | //pin 32 | R0     | 390 Ohm  |
+| assign loan_io_out[30] = RED[0];   | //pin 34 | R1     | 200 Ohm  |
 
 
 
-**TO BE FINISHED.**
+Expected monitor output
+--------------------------
 
-
+![](./vga-test.png)  
 
 External circuit schematic
 --------------------------
@@ -51,9 +74,9 @@ External circuit schematic
 To test the core we need to mount an external circuit, adapting the following schematic to your circuit. 
 
 ![](./schematic.jpg)  
-Schematic courtesy of Jaime Perez. 
+Schematic courtesy of Jaime Pérez. 
 
 ![](./vga-03.png)
 
-If you want to connect dupont wires directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wire in the following rows.
+If you want to connect Dupont wires directly to the VGA connector take a bit of care but it is feasible. The ground connection in the middle is not really necessary so you would only need to connect 4 wires on top row, and 2 wires in the following rows as shown in this image.
 
