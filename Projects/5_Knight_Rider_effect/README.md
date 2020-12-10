@@ -49,6 +49,15 @@ Inside loanio_control the 8 led signals are assigned to the LS connector loanIO 
 
 
 
+Expected output
+--------------------------
+
+
+<video width="640" height="480" controls>
+  <source src="video.mp4" type="video/mp4">
+</video>
+
+
 External circuit schematic
 --------------------------
 
