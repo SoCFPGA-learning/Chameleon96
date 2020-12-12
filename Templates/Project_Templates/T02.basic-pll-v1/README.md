@@ -2,7 +2,7 @@
 
 See below how to adapt the templates to your own project.
 
-This folder contain the following project templates:
+This folder contain the following project template:
 
 * T02.basic-pll-v1
   * main.bdf. Top block diagram containing:
@@ -37,10 +37,10 @@ Follow these steps:
 * Open project file main.qpf
 * In project navigator double click on main top object to open it
 * Remove from block diagram everything you don't need like  VGA_C96, debouncer, counter, Wifi & BT led connections.
-* If you need 100 MHz clock on your project you can remove completely the PLL block and all it's related files, and use the `clk` signal from the soc_hps block.
+* If all you need is 100 MHz clock on your project you can remove completely the PLL block and all it's related files, and use the `clk` signal from the soc_hps block.
 * Menu Project > Add/Remove files in project  > ...  > select and remove all that you removed in previous steps
-* [Double click on PLL block to open its properties. Adjust desired frequency as per your needs]
-* Replace VGA_C96 block with your own project module block (see below how to create blocks)
+* Adjust PLL desired frequency as per your needs: Project navigator > IP components > double click on Altera PLL
+* Replace VGA_C96 block with your own project module block (see below how to create blocks from HDL files)
 * Connect the PLL output clock or `clk` signal to your module input clock
 * All outputs from your modules that are defined as LoanIO's should go as inputs to the loanio_control block.
 * All inputs to your modules that are defined as LoanIO's should come from loanio_in[xx] signals and defined inside loanio_control block as inputs.
@@ -50,7 +50,7 @@ Follow these steps:
 
 If needed different soc_hps configuration:
 
-* Open soc_hps.qsys in Platform editor (Qsys) and adapt to your convenience.
+* Open soc_hps.qsys in Platform editor (Qsys) and adapt it to your convenience.
 * After that go to block editor in quartus and right click on the soc_hps block and update block.
 * If you generated new pins on the soc_hps block, right click on the soc_hps block and click Generate pins for symbol ports.
 * You would need surely to generate a new preloader so the changed configuration gets loaded when board boots (see tutorial section).
@@ -59,25 +59,20 @@ When all is done, just compile your project.
 
 **Create blocks from Verilog modules**
 
-* Open your Verilog file (File > Open > check add file to current project)
+* Open your Verilog file (File > Open > select file and check add file to current project)
+
 * Alternatively create a new Verilog file  (File > New > Verilog HDL File > Ok)
+
 * Create the block (File > Create/Update > Create Symbol Files for Current File)
+
 * Insert the block into main block diagram
 
-
+  
 
 Program FPGA
 --------------------------------------------------------
-
 * Open the programmer (Tools menu > Programmer)
-
-
 * Hardware Setup... > Hardware Settings > Double click "Arrow 96 CV SoC Board" > Close
-
-
 * Add Device... > Soc Series V > double click SOCVHPS > Ok
-
 * Select the "SOCVHPS" and press "Up" button
-
-
 * Press the "Start" button to flash your core

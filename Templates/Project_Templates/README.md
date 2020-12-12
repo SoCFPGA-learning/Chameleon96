@@ -9,4 +9,4 @@ This folder contains the following project templates:
   
 
 
-See each folder for more detail about each template. 
+See each folder for more details about each template. 
