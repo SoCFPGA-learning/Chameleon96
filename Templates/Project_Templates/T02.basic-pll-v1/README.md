@@ -43,7 +43,7 @@ Follow these steps:
 * Replace VGA_C96 block with your own project module block (see below how to create blocks from HDL files)
 * Connect the PLL output clock or `clk` signal to your module input clock
 * All outputs from your modules that are defined as LoanIO's should go as inputs to the loanio_control block.
-* All inputs to your modules that are defined as LoanIO's should come from loanio_in[xx] signals and defined inside loanio_control block as inputs.
+* All inputs to your modules that are defined as LoanIO's should come from loanio_in[xx] signals and shall be defined inside loanio_control block as inputs.
 * Double click on loanio_control block and modify IO ports and adjust loanIOs as per your convenience.
 
 
