@@ -1,21 +1,26 @@
 # Various notes
-UART0 LOANIO
-------------
-
-HPS Config 	   UART0 unused							USER CLOCK 0 CHANGED TO 25 MHZ (CONFIG AT 100 MHz)
-UART1 hps set 0  no flow control
+Set UART0 as LonanIO
+--------------------
 
 
-HPS Config 	    UART0 FPGA full						USER CLOCK 0 STAYED AT 100 MHz
-UART1 hps set 0  no flow control
+* HPS Config 	    
+	* UART0: FPGA; full						
+	* UART1: hps set 0 ; no flow control
+
+Note: if you set UART0 to unused, USER CLOCK 0 CHANGED TO 25 MHZ (Configured at 100 MHz).    
+
+
+![](./README_files/pasted_image001.png)  
+
+Code:  
+```
 assign loan_io_out[61] = counter[24];		//UART0_RX	GREEN	 does not output anything
 assign loan_io_out[62] = hsync;				//UART0_TX	WHITE  ok vsync 60 Hz & hsync 31,5 kHz at 3,3 Vout  (no capacitor at Vout)
+```
 
 
+Schematics:  
 ![](./README_files/pasted_image.png)
-
-![](./README_files/pasted_image001.png)
-
 
 
 Enter uboot and change parameters
