@@ -27,9 +27,10 @@ The folders contain the following information:
   * Preloaders: ready made preloaders
 
   * Presets: Qsys preset configurations for Chameleon96 board 
-  
 * **Documents**
   * Contains various useful documentation (c96 schematics, images, DE10-Nano my first fpga tutorial, ...)
+* **Others**
+  * Some notes about specific tests I made 
 
 **Useful sites with info about the Chameleon96 board:**
 
