@@ -21,10 +21,13 @@ I took the github aars_joystick project and ported it from Xilinx to Altera. Bas
 
 Originally the code worked with a clock of 28 MHz. This could cause problems with breadboards and Dupont wires, and with lower voltages like 1.8V in the chameleon96, so frequency was reduced to 5 MHz that should be enough for most applications.
 
-Check the original code if you intend the use it with two joysticks as I made minor changes to it, because I just had at hand a DB15 PC joystick from which I just tested 4 buttons and monitored the pressing with the 4 fpga onboard leds. 
+Check the original code if you intend the use it with two joysticks as I made minor changes to it, because I just had at hand a DB15 PC joystick from which I just tested 4 buttons and monitored the pressing with the 4 fpga onboard leds.  
+
+See loanio_control.v for loanIO pin assigments in the Chameleon96 board to drive the SPI pins.
 
 ### Schematic
 
+[GPIO_expander schematic pdf](GPIO_expander.pdf) 
+
 ![image-20210113231239190](schematic.png)
 
-See loanio_control.v for loanIO pin assigments in the Chameleon96 board to drive the SPI pins.
