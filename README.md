@@ -30,16 +30,28 @@ The folders contain the following information:
 * **Others**
   * Some notes about specific tests I made 
 
-**Useful sites with info about the Chameleon96 board:**
+### **Contributing:**
 
-https://www.96boards.org/product/chameleon96/
+[Contributing](https://github.com/SoCFPGA-learning/General/tree/main/Contributing) is needed to increase the amount of resources and projects available to the community. Any language can be used for documenting the projects.
 
-https://docs.raetro.com/books/arrow-chameleon96
+### **Colaboraciones:**
 
-https://github.com/Raetro
+Se necesita la [colaboración](https://github.com/SoCFPGA-learning/General/tree/main/Github_ayuda) para poder incrementar los recursos disponibles para la comunidad entorno esta placa de desarrollo.    La documentación que acompañe los proyectos puede estar redactada en cualquier idioma.
 
-https://github.com/Chameleon96-ES
+### Other media
 
-https://t.me/Chameleon96 telegram group
+* [Telegrom group](https://t.me/Chameleon96) 
+* [Discord channel](https://discord.gg/YDdmtwh) 
+
+### **Useful sites with info about the Chameleon96 board:**
+
+- https://www.96boards.org/product/chameleon96/
+
+- https://docs.raetro.com/books/arrow-chameleon96
+
+- https://github.com/Raetro
+
+- https://github.com/Chameleon96-ES
+
 
 
