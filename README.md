@@ -46,12 +46,10 @@ Se necesita la [colaboración](https://github.com/SoCFPGA-learning/General/tree/
 ### **Useful sites with info about the Chameleon96 board:**
 
 - https://www.96boards.org/product/chameleon96/
-
 - https://docs.raetro.com/books/arrow-chameleon96
-
 - https://github.com/Raetro
-
 - https://github.com/Chameleon96-ES
+- [See also General FPGA Resources list](https://github.com/SoCFPGA-learning/General/resources.md)
 
 
 
