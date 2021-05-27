@@ -49,7 +49,5 @@ Se necesita la [colaboración](https://github.com/SoCFPGA-learning/General/tree/
 - https://docs.raetro.com/books/arrow-chameleon96
 - https://github.com/Raetro
 - https://github.com/Chameleon96-ES
-- [See also General FPGA Resources list](https://github.com/SoCFPGA-learning/General/resources.md)
-
-
+- [See also General FPGA Resources list](https://github.com/SoCFPGA-learning/General/blob/main/resources.md)
 
