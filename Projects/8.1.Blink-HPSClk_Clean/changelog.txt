@@ -1,0 +1,11 @@
+
+--Changelog 
+v2.02 somhic
+CV_96.vhd -> CV_96.v
+
+v2.01 yo_me
+Added SDC
+HPS.V -> HPS.SV
+
+v2.00 yo_me
+1st try Qsys Free

@@ -1,0 +1,18 @@
+# system info iOSC on 2022.01.02.17:52:32
+system_info:
+name,value
+DEVICE,5CSEBA6U19I7
+DEVICE_FAMILY,Cyclone V
+GENERATION_ID,1641142351
+#
+#
+# Files generated for iOSC on 2022.01.02.17:52:32
+files:
+filepath,kind,attributes,module,is_top
+simulation/iOSC.v,VERILOG,,iOSC,true
+simulation/submodules/altera_int_osc.v,VERILOG,,altera_int_osc,false
+#
+# Map from instance-path to kind of module
+instances:
+instancePath,module
+iOSC.int_osc_0,altera_int_osc

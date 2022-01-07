@@ -1,0 +1,41 @@
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_TOOL_NAME "Qsys"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_TOOL_VERSION "20.1"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_TOOL_ENV "Qsys"
+set_global_assignment -library "iOSC" -name SOPCINFO_FILE [file join $::quartus(qip_path) "../../iOSC.sopcinfo"]
+set_global_assignment -entity "iOSC" -library "iOSC" -name SLD_INFO "QSYS_NAME iOSC HAS_SOPCINFO 1 GENERATION_ID 1641142355"
+set_global_assignment -library "iOSC" -name MISC_FILE [file join $::quartus(qip_path) "../iOSC.cmp"]
+set_global_assignment -library "iOSC" -name SLD_FILE [file join $::quartus(qip_path) "iOSC.debuginfo"]
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_TARGETED_DEVICE_FAMILY "Cyclone V"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_GENERATED_DEVICE_FAMILY "{Cyclone V}"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_QSYS_MODE "STANDALONE"
+set_global_assignment -name SYNTHESIS_ONLY_QIP ON
+set_global_assignment -library "iOSC" -name MISC_FILE [file join $::quartus(qip_path) "../../iOSC.qsys"]
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_NAME "aU9TQw=="
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_DISPLAY_NAME "aU9TQw=="
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_REPORT_HIERARCHY "On"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_VERSION "MS4w"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_PARAMETER "QVVUT19HRU5FUkFUSU9OX0lE::MTY0MTE0MjM1NQ==::QXV0byBHRU5FUkFUSU9OX0lE"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfRkFNSUxZ::Q3ljbG9uZSBW::QXV0byBERVZJQ0VfRkFNSUxZ"
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0U=::NUNTRUJBNlUxOUk3::QXV0byBERVZJQ0U="
+set_global_assignment -entity "iOSC" -library "iOSC" -name IP_COMPONENT_PARAMETER "QVVUT19ERVZJQ0VfU1BFRURHUkFERQ==::Nw==::QXV0byBERVZJQ0VfU1BFRURHUkFERQ=="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_NAME "YWx0ZXJhX2ludF9vc2M="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_DISPLAY_NAME "SW50ZXJuYWwgT3NjaWxsYXRvcg=="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_REPORT_HIERARCHY "Off"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_INTERNAL "Off"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_AUTHOR "QWx0ZXJhIENvcnBvcmF0aW9u"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_VERSION "MjAuMQ=="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_DESCRIPTION "SW50ZXJuYWwgT3NjaWxsYXRvciBwcm92aWRlcyBpbnRlcm5hbCBjbG9jayBzb3VyY2UgZm9yIGRlYnVnZ2luZyBwdXJwb3NlLg=="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "SU5GT1JNQVRJT04=::VGhlIG1heGltdW0gb3V0cHV0IGZyZXF1ZW5jeSBpcyAxMDBNSHo=::SU5GT1JNQVRJT04="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "REVWSUNFX0ZBTUlMWQ==::Q3ljbG9uZSBW::RGV2aWNlIGZhbWlseQ=="
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "UEFSVF9OQU1F::NUNTRUJBNlUxOUk3::RGV2aWNl"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "REVWSUNFX0lE::VU5LTk9XTg==::REVWSUNFX0lE"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "Q0xPQ0tfRlJFUVVFTkNZ::VU5LTk9XTg==::Q0xPQ0tfRlJFUVVFTkNZ"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_COMPONENT_PARAMETER "Q0JYX0FVVE9fQkxBQ0tCT1g=::QUxM::Q0JYX0FVVE9fQkxBQ0tCT1g="
+
+set_global_assignment -library "iOSC" -name VERILOG_FILE [file join $::quartus(qip_path) "iOSC.v"]
+set_global_assignment -library "iOSC" -name VERILOG_FILE [file join $::quartus(qip_path) "submodules/altera_int_osc.v"]
+
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_TOOL_NAME "altera_int_osc"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_TOOL_VERSION "20.1"
+set_global_assignment -entity "altera_int_osc" -library "iOSC" -name IP_TOOL_ENV "Qsys"

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deploy
+ date="2022.01.02.17:52:35"
+ outputDirectory="D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/">
+ <perimeter>
+  <parameter
+     name="AUTO_GENERATION_ID"
+     type="Integer"
+     defaultValue="0"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_UNIQUE_ID"
+     type="String"
+     defaultValue=""
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_FAMILY"
+     type="String"
+     defaultValue="Cyclone V"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE"
+     type="String"
+     defaultValue="5CSEBA6U19I7"
+     onHdl="0"
+     affectsHdl="1" />
+  <parameter
+     name="AUTO_DEVICE_SPEEDGRADE"
+     type="String"
+     defaultValue="7"
+     onHdl="0"
+     affectsHdl="1" />
+  <interface name="clkout" kind="clock" start="1">
+   <property name="associatedDirectClock" value="" />
+   <property name="clockRate" value="0" />
+   <property name="clockRateKnown" value="false" />
+   <property name="externallyDriven" value="false" />
+   <property name="ptfSchematicName" value="" />
+   <port name="clkout" direction="output" role="clk" width="1" />
+  </interface>
+  <interface name="oscena" kind="conduit" start="0">
+   <property name="associatedClock" value="" />
+   <property name="associatedReset" value="" />
+   <port name="oscena" direction="input" role="oscena" width="1" />
+  </interface>
+ </perimeter>
+ <entity
+   path=""
+   parameterizationKey="iOSC:1.0:AUTO_DEVICE=5CSEBA6U19I7,AUTO_DEVICE_FAMILY=Cyclone V,AUTO_DEVICE_SPEEDGRADE=7,AUTO_GENERATION_ID=1641142355,AUTO_UNIQUE_ID=(altera_int_osc:20.1:CBX_AUTO_BLACKBOX=ALL,CLOCK_FREQUENCY=UNKNOWN,CLOCK_FREQUENCY_1=116,CLOCK_FREQUENCY_2=77,DEVICE_FAMILY=Cyclone V,DEVICE_ID=UNKNOWN,INFORMATION=The maximum output frequency is 100MHz,PART_NAME=5CSEBA6U19I7)"
+   instancePathKey="iOSC"
+   kind="iOSC"
+   version="1.0"
+   name="iOSC">
+  <parameter name="AUTO_GENERATION_ID" value="1641142355" />
+  <parameter name="AUTO_DEVICE" value="5CSEBA6U19I7" />
+  <parameter name="AUTO_DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="AUTO_UNIQUE_ID" value="" />
+  <parameter name="AUTO_DEVICE_SPEEDGRADE" value="7" />
+  <generatedFiles>
+   <file
+       path="D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/synthesis/iOSC.v"
+       type="VERILOG" />
+  </generatedFiles>
+  <childGeneratedFiles>
+   <file
+       path="D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/synthesis/submodules/altera_int_osc.v"
+       type="VERILOG"
+       attributes="" />
+  </childGeneratedFiles>
+  <sourceFiles>
+   <file path="D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC.qsys" />
+  </sourceFiles>
+  <childSourceFiles>
+   <file
+       path="C:/intelfpga/20.1/ip/altera/altera_int_osc/altera_int_osc_hw.tcl" />
+  </childSourceFiles>
+  <messages>
+   <message level="Debug" culprit="iOSC">queue size: 0 starting:iOSC "iOSC"</message>
+   <message level="Progress" culprit="min"></message>
+   <message level="Progress" culprit="max"></message>
+   <message level="Progress" culprit="current"></message>
+   <message level="Debug">Transform: CustomInstructionTransform</message>
+   <message level="Debug">No custom instruction connections, skipping transform </message>
+   <message level="Debug" culprit="merlin_custom_instruction_transform"><![CDATA[After transform: <b>1</b> modules, <b>0</b> connections]]></message>
+   <message level="Debug">Transform: MMTransform</message>
+   <message level="Debug">Transform: InterruptMapperTransform</message>
+   <message level="Debug">Transform: InterruptSyncTransform</message>
+   <message level="Debug">Transform: InterruptFanoutTransform</message>
+   <message level="Debug">Transform: AvalonStreamingTransform</message>
+   <message level="Debug">Transform: ResetAdaptation</message>
+   <message level="Debug" culprit="iOSC"><![CDATA["<b>iOSC</b>" reuses <b>altera_int_osc</b> "<b>submodules/altera_int_osc</b>"]]></message>
+   <message level="Debug" culprit="iOSC">queue size: 0 starting:altera_int_osc "submodules/altera_int_osc"</message>
+   <message level="Info" culprit="int_osc_0">Generating top-level entity altera_int_osc.</message>
+   <message level="Info" culprit="int_osc_0"><![CDATA["<b>iOSC</b>" instantiated <b>altera_int_osc</b> "<b>int_osc_0</b>"]]></message>
+  </messages>
+ </entity>
+ <entity
+   path="submodules/"
+   parameterizationKey="altera_int_osc:20.1:CBX_AUTO_BLACKBOX=ALL,CLOCK_FREQUENCY=UNKNOWN,CLOCK_FREQUENCY_1=116,CLOCK_FREQUENCY_2=77,DEVICE_FAMILY=Cyclone V,DEVICE_ID=UNKNOWN,INFORMATION=The maximum output frequency is 100MHz,PART_NAME=5CSEBA6U19I7"
+   instancePathKey="iOSC:.:int_osc_0"
+   kind="altera_int_osc"
+   version="20.1"
+   name="altera_int_osc">
+  <parameter name="CLOCK_FREQUENCY_2" value="77" />
+  <parameter name="CLOCK_FREQUENCY_1" value="116" />
+  <parameter name="PART_NAME" value="5CSEBA6U19I7" />
+  <parameter name="CLOCK_FREQUENCY" value="UNKNOWN" />
+  <parameter name="INFORMATION" value="The maximum output frequency is 100MHz" />
+  <parameter name="DEVICE_FAMILY" value="Cyclone V" />
+  <parameter name="CBX_AUTO_BLACKBOX" value="ALL" />
+  <parameter name="DEVICE_ID" value="UNKNOWN" />
+  <generatedFiles>
+   <file
+       path="D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/synthesis/submodules/altera_int_osc.v"
+       type="VERILOG"
+       attributes="" />
+  </generatedFiles>
+  <childGeneratedFiles/>
+  <sourceFiles>
+   <file
+       path="C:/intelfpga/20.1/ip/altera/altera_int_osc/altera_int_osc_hw.tcl" />
+  </sourceFiles>
+  <childSourceFiles/>
+  <instantiator instantiator="iOSC" as="int_osc_0" />
+  <messages>
+   <message level="Debug" culprit="iOSC">queue size: 0 starting:altera_int_osc "submodules/altera_int_osc"</message>
+   <message level="Info" culprit="int_osc_0">Generating top-level entity altera_int_osc.</message>
+   <message level="Info" culprit="int_osc_0"><![CDATA["<b>iOSC</b>" instantiated <b>altera_int_osc</b> "<b>int_osc_0</b>"]]></message>
+  </messages>
+ </entity>
+</deploy>

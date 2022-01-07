@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simPackage>
+ <file
+   path="simulation/submodules/altera_int_osc.v"
+   type="VERILOG"
+   library="int_osc_0" />
+ <file path="simulation/iOSC.v" type="VERILOG" />
+ <topLevel name="iOSC" />
+ <deviceFamily name="cyclonev" />
+</simPackage>

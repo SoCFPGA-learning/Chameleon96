@@ -1,0 +1,16 @@
+<sld_project_info>
+  <project>
+    <hash md5_digest_80b="8695e53b95bf836737c1"/>
+  </project>
+  <file_info>
+    <file device="5CSEBA6U19I7" path="CV_96.sof" usercode="0xFFFFFFFF"/>
+  </file_info>
+  <sld_infos>
+    <sld_info hpath="iOSC:u0" name="u0">
+      <assignment_values>
+        <assignment_value text="QSYS_NAME iOSC HAS_SOPCINFO 1 GENERATION_ID 1641142355"/>
+      </assignment_values>
+      <parameters/>
+    </sld_info>
+  </sld_infos>
+</sld_project_info>

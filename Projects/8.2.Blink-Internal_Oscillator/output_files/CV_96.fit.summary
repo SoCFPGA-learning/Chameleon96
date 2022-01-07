@@ -1,0 +1,20 @@
+Fitter Status : Successful - Sun Jan 02 19:19:32 2022
+Quartus Prime Version : 20.1.0 Build 711 06/05/2020 SJ Standard Edition
+Revision Name : CV_96
+Top-level Entity Name : CV_96
+Family : Cyclone V
+Device : 5CSEBA6U19I7
+Timing Models : Final
+Logic utilization (in ALMs) : 24 / 41,910 ( < 1 % )
+Total registers : 42
+Total pins : 2 / 205 ( < 1 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 5,662,720 ( 0 % )
+Total RAM Blocks : 0 / 553 ( 0 % )
+Total DSP Blocks : 0 / 112 ( 0 % )
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0 / 6 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )

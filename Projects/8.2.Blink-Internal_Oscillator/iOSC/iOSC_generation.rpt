@@ -1,0 +1,67 @@
+Info: Starting: Create simulation model
+Info: qsys-generate D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC.qsys --simulation=VERILOG --allow-mixed-language-simulation --output-directory=D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC\simulation --family="Cyclone V" --part=5CSEBA6U19I7
+Progress: Loading Blink-USBCLK/iOSC.qsys
+Progress: Reading input file
+Progress: Adding int_osc_0 [altera_int_osc 20.1]
+Progress: Parameterizing module int_osc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: iOSC: Generating iOSC "iOSC" for SIM_VERILOG
+Info: int_osc_0: Generating top-level entity altera_int_osc.
+Info: int_osc_0: "iOSC" instantiated altera_int_osc "int_osc_0"
+Info: iOSC: Done "iOSC" with 2 modules, 2 files
+Info: qsys-generate succeeded.
+Info: Finished: Create simulation model
+Info: Starting: Create Modelsim Project.
+Info: sim-script-gen --spd=D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC\iOSC.spd --output-directory=D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ --use-relative-paths=true
+Info: Doing: ip-make-simscript --spd=D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC\iOSC.spd --output-directory=D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ --use-relative-paths=true
+Info: Generating the following file(s) for MODELSIM simulator in D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ directory:
+Info: 	mentor/msim_setup.tcl
+Info: Generating the following file(s) for VCS simulator in D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ directory:
+Info: 	synopsys/vcs/vcs_setup.sh
+Info: Generating the following file(s) for VCSMX simulator in D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ directory:
+Info: 	synopsys/vcsmx/synopsys_sim.setup
+Info: 	synopsys/vcsmx/vcsmx_setup.sh
+Info: Generating the following file(s) for NCSIM simulator in D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ directory:
+Info: 	cadence/cds.lib
+Info: 	cadence/hdl.var
+Info: 	cadence/ncsim_setup.sh
+Info: 	1 .cds.lib files in cadence/cds_libs/ directory
+Info: Generating the following file(s) for RIVIERA simulator in D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/ directory:
+Info: 	aldec/rivierapro_setup.tcl
+Info: For information on how to simulate your IP, see the explanatory comments in the simulator-specific subdirectories under D:/Wrk/FPGA/Chamaleon96/Blink-USBCLK/iOSC/simulation/.
+Info: Regenerate these scripts whenever you make any change to any Quartus-generated IP in your project.
+Info: Finished: Create Modelsim Project.
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC.qsys --block-symbol-file --output-directory=D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC --family="Cyclone V" --part=5CSEBA6U19I7
+Progress: Loading Blink-USBCLK/iOSC.qsys
+Progress: Reading input file
+Progress: Adding int_osc_0 [altera_int_osc 20.1]
+Progress: Parameterizing module int_osc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC.qsys --synthesis=VERILOG --greybox --output-directory=D:\Wrk\FPGA\Chamaleon96\Blink-USBCLK\iOSC\synthesis --family="Cyclone V" --part=5CSEBA6U19I7
+Progress: Loading Blink-USBCLK/iOSC.qsys
+Progress: Reading input file
+Progress: Adding int_osc_0 [altera_int_osc 20.1]
+Progress: Parameterizing module int_osc_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: iOSC: Generating iOSC "iOSC" for QUARTUS_SYNTH
+Info: int_osc_0: Generating top-level entity altera_int_osc.
+Info: int_osc_0: "iOSC" instantiated altera_int_osc "int_osc_0"
+Info: iOSC: Done "iOSC" with 2 modules, 2 files
+Info: Generating third-party timing and resource estimation model ...
+Info: Done generating third-party timing and resource estimation model.
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis
