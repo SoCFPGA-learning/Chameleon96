@@ -1,10 +1,19 @@
+# 8.3 Mezzanine Clock
 
+This is a typical blink project, alternating Wifi and Bluetooth leds on the Chameleon96 boards.
+
+It has two sources of clocks to test different ways to obtain a clock in Chameleon96 board.
 
 **Top file**: rtl/CV_96.v
 
-With `define CLK_HPS  uses internal HPS clock at 100 MHz.
+On top of that file you can choose the source of clock to be used.
 
-With  // `define CLK_HPS  uses external clock PIN_W12  CLK_EXT at 50 MHz.
+With `define CLK_HPS  it uses internal HPS clock at 100 MHz.
+
+With  // `define CLK_HPS  it uses external clock PIN_W12  CLK_EXT at 50 MHz.
+
+
+## FPGA Mezzanine
 
 For external clock it has been used a FPGA Mezzanine board https://www.96boards.org/documentation/mezzanine/shiratech-fpga/
 

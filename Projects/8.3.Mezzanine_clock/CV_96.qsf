@@ -49,6 +49,7 @@ set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
 set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
 set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
 set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
 
 set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
 set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
@@ -76,10 +77,11 @@ set_instance_assignment -name IO_STANDARD "2.5 V" -to FPGA_2V5_RF_LEDS_LED2_PIN_
 
 #============================================================
 
-set_global_assignment -name VERILOG_FILE rtl/CV_96.v
-set_global_assignment -name SDC_FILE rtl/CV_96.sdc
+set_global_assignment -name VERILOG_FILE CV_96.v
+set_global_assignment -name SDC_FILE CV_96.sdc
 set_global_assignment -name SYSTEMVERILOG_FILE rtl/HPS.sv
 set_global_assignment -name VERILOG_FILE rtl/Blink.v
+set_global_assignment -name QIP_FILE rtl/pll/pll.qip
 
 #============================================================
 
