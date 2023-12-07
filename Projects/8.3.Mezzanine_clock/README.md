@@ -2,9 +2,9 @@
 
 **Top file**: rtl/CV_96.v
 
-With ``define CLK_HPS`  uses internal HPS clock at 100 MHz.
+With `define CLK_HPS  uses internal HPS clock at 100 MHz.
 
-With  `// define CLK_HPS`  uses external clock PIN_W12  CLK_EXT
+With  // `define CLK_HPS  uses external clock PIN_W12  CLK_EXT at 50 MHz.
 
 For external clock it has been used a FPGA Mezzanine board https://www.96boards.org/documentation/mezzanine/shiratech-fpga/
 
