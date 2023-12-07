@@ -48,9 +48,7 @@ This tutorial has been made with this software setup:
 
 * [Chameleon96 telegram group](https://t.me/Chameleon96)
 * [Rætro's docs  to generate the preloader](https://docs.raetro.com/books/arrow-chameleon96/page/overview)
-* [github.com/somhi/kameleon96/](https://github.com/somhi/kameleon96)
-
-
+* [SD/MMC Flash Devices](https://www.intel.com/content/www/us/en/docs/programmable/683126/21-2/sd-mmc-flash-devices.html)
 
 Partition structure of the original Chameleon96 SD card
 -------------------------------------------------------
@@ -171,7 +169,7 @@ sudo dd if=sd.img of=/dev/sdX bs=1M
 
 * Alternatively you can directly restore the image from a tar compressed file with this command:  
 
- 
+
 ```
 tar zxvfO sd.img.tar.gz | sudo dd of=/dev/sdX bs=1M
 ```
