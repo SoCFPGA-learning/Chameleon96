@@ -1,0 +1,45 @@
+Info: Starting: Create block symbol file (.bsf)
+Info: qsys-generate /home/jordi/Documents/Coding/FPGA/chameleon96_17/9.1.Pooyan/Pooyan/c96/soc_hps.qsys --block-symbol-file --output-directory=/home/jordi/Documents/Coding/FPGA/chameleon96_17/9.1.Pooyan/Pooyan/c96/soc_hps --family="Cyclone V" --part=5CSEBA6U19I7
+Progress: Loading c96/soc_hps.qsys
+Progress: Reading input file
+Progress: Adding clock_bridge_0 [altera_clock_bridge 17.1]
+Progress: Parameterizing module clock_bridge_0
+Progress: Adding hps_0 [altera_hps 17.1]
+Progress: Parameterizing module hps_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: soc_hps.hps_0: HLGPI is not available for Device 5CSEBA6U19I7 (484 pins)
+Info: soc_hps.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: soc_hps.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: qsys-generate succeeded.
+Info: Finished: Create block symbol file (.bsf)
+Info: 
+Info: Starting: Create HDL design files for synthesis
+Info: qsys-generate /home/jordi/Documents/Coding/FPGA/chameleon96_17/9.1.Pooyan/Pooyan/c96/soc_hps.qsys --synthesis=VERILOG --output-directory=/home/jordi/Documents/Coding/FPGA/chameleon96_17/9.1.Pooyan/Pooyan/c96/soc_hps/synthesis --family="Cyclone V" --part=5CSEBA6U19I7
+Progress: Loading c96/soc_hps.qsys
+Progress: Reading input file
+Progress: Adding clock_bridge_0 [altera_clock_bridge 17.1]
+Progress: Parameterizing module clock_bridge_0
+Progress: Adding hps_0 [altera_hps 17.1]
+Progress: Parameterizing module hps_0
+Progress: Building connections
+Progress: Parameterizing connections
+Progress: Validating
+Progress: Done reading input file
+Info: soc_hps.hps_0: HLGPI is not available for Device 5CSEBA6U19I7 (484 pins)
+Info: soc_hps.hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: soc_hps.hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: soc_hps: Generating soc_hps "soc_hps" for QUARTUS_SYNTH
+Info: hps_0: "Running  for module: hps_0"
+Info: hps_0: HLGPI is not available for Device 5CSEBA6U19I7 (484 pins)
+Info: hps_0: HPS Main PLL counter settings: n = 0  m = 63
+Info: hps_0: HPS peripherial PLL counter settings: n = 0  m = 39
+Info: hps_0: "soc_hps" instantiated altera_hps "hps_0"
+Info: fpga_interfaces: "hps_0" instantiated altera_interface_generator "fpga_interfaces"
+Info: hps_io: "hps_0" instantiated altera_hps_io "hps_io"
+Info: border: "hps_io" instantiated altera_interface_generator "border"
+Info: soc_hps: Done "soc_hps" with 5 modules, 49 files
+Info: qsys-generate succeeded.
+Info: Finished: Create HDL design files for synthesis

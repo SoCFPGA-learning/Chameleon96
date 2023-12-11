@@ -1,0 +1,187 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+# Date created = 21:03:07  May 26, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		tld_test_placa_deca_neptuno_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSEBA6U19I7
+set_global_assignment -name TOP_LEVEL_ENTITY pooyan_c96
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 16.0.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "05:57:15  SEPTEMBER 14, 2016"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP "-40"
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 100
+set_global_assignment -name DEVICE_FILTER_PIN_COUNT 484
+set_global_assignment -name DEVICE_FILTER_SPEED_GRADE 7
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+
+set_global_assignment -name EDA_SIMULATION_TOOL "<None>"
+set_global_assignment -name EDA_TIME_SCALE "1 ps" -section_id eda_simulation
+set_global_assignment -name EDA_OUTPUT_DATA_FORMAT NONE -section_id eda_simulation
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_global_assignment -name USE_DLL_FREQUENCY_FOR_DQS_DELAY_CHAIN ON
+set_global_assignment -name UNIPHY_SEQUENCER_DQS_CONFIG_ENABLE ON
+set_global_assignment -name OPTIMIZE_MULTI_CORNER_TIMING ON
+set_global_assignment -name ECO_REGENERATE_REPORT ON
+
+###################################
+
+# clock
+set_location_assignment PIN_W12 -to CLK_EXT
+set_instance_assignment -name IO_STANDARD "1.8 V" -to CLK_EXT
+
+# leds
+set_location_assignment PIN_Y19 -to FPGA_2V5_RF_LEDS_LED1_PIN_Y19
+set_location_assignment PIN_Y20 -to FPGA_2V5_RF_LEDS_LED2_PIN_Y20
+set_instance_assignment -name IO_STANDARD "2.5 V" -to FPGA_2V5_RF_LEDS_LED1_PIN_Y19
+set_instance_assignment -name IO_STANDARD "2.5 V" -to FPGA_2V5_RF_LEDS_LED2_PIN_Y20
+
+
+# PS2 keyboard input  # Teclado (P9:11,12 GPIO1_D0/1) 
+# set_location_assignment PIN_Y5 -to ps2clk
+# set_location_assignment PIN_Y6 -to ps2dat
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ps2clk
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ps2dat
+
+# Audio pwm output (P8:5,6 GPIO0_D02/03)   #(Atlas board: T12_left 1, 2 gnd, 3 R11_right)
+# set_location_assignment PIN_Y19 -to pwm_l
+# set_location_assignment PIN_AA17 -to pwm_r
+# set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to audio_pwm_l
+# set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to audio_pwm_r
+
+
+# VGA video output
+# set_location_assignment PIN_ -to vga_b[0]
+# set_location_assignment PIN_ -to vga_b[1]
+# set_location_assignment PIN_ -to vga_b[2]
+# set_location_assignment PIN_ -to vga_b[3]
+
+# set_location_assignment PIN_ -to vga_g[0]
+# set_location_assignment PIN_ -to vga_g[1]
+# set_location_assignment PIN_ -to vga_g[2]
+# set_location_assignment PIN_ -to vga_g[3]
+
+# set_location_assignment PIN_ -to vga_r[0]
+# set_location_assignment PIN_ -to vga_r[1]
+# set_location_assignment PIN_ -to vga_r[2]
+# set_location_assignment PIN_ -to vga_r[3]
+
+# set_location_assignment PIN_ -to vga_vs
+# set_location_assignment PIN_ -to vga_hs
+
+# # JOYSTICK 
+# set_location_assignment PIN_J4 -to JOY1_B2_P9
+# set_location_assignment PIN_H3 -to JOY1_B1_P6
+# set_location_assignment PIN_J8 -to JOY1_UP
+# set_location_assignment PIN_J9 -to JOY1_DOWN
+# set_location_assignment PIN_F4 -to JOY1_LEFT
+# set_location_assignment PIN_F5 -to JOY1_RIGHT
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_B2_P9
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_B1_P6
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_UP
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_DOWN
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_LEFT
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOY1_RIGHT
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_B2_P9
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_B1_P6
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_UP
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_DOWN
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_LEFT
+# set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_RIGHT
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_UP
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_DOWN
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_LEFT
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_B1_P6
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_B2_P9
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOY1_RIGHT
+# # joystick select pin 
+# set_location_assignment PIN_K5 -to JOYX_SEL_O
+# set_instance_assignment -name IO_STANDARD "2.5 V" -to JOYX_SEL_O
+# set_instance_assignment -name CURRENT_STRENGTH_NEW 4MA -to JOYX_SEL_O
+
+
+###################################
+
+###################################
+
+set_global_assignment -name SDC_FILE pooyan_c96.sdc
+set_global_assignment -name VHDL_FILE pooyan_c96.vhd
+set_global_assignment -name VHDL_FILE max10_pll_12M_14M.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80s.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_Reg.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_MCode.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_ALU.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80.vhd
+set_global_assignment -name VHDL_FILE ../rtl_mikej/YM2149_linmix_sep.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/pooyan_sound_board.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/pooyan.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/kbd_joystick.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/io_ps2_keyboard.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/gen_ram.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/decodeur_7_seg.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_grphx2.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_grphx1.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_grphx2.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_grphx1.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_color_lut.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sound_prog.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_prog.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_palette.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_color_lut.vhd
+
+set_global_assignment -name VERILOG_FILE vga_scandoubler.v
+
+set_global_assignment -name VERILOG_FILE loanio_control.v
+# set_global_assignment -name QSYS_FILE soc_hps.qsys
+
+# commented out sdram mentions from soc_hps.qip
+set_global_assignment -name QIP_FILE soc_hps/synthesis/soc_hps.qip
+# set_global_assignment -name VERILOG_FILE soc_hps/synthesis/soc_hps.v
+# set_global_assignment -name VERILOG_FILE soc_hps/synthesis/submodules/soc_hps_hps_0.v
+# set_global_assignment -name VERILOG_FILE soc_hps/synthesis/submodules/soc_hps_hps_0_hps_io.v
+# commented out sdram instantiations from following modules
+# set_global_assignment -name SYSTEMVERILOG_FILE soc_hps/synthesis/submodules/soc_hps_hps_0_fpga_interfaces.sv
+# set_global_assignment -name SYSTEMVERILOG_FILE soc_hps/synthesis/submodules/soc_hps_hps_0_hps_io_border.sv
+
+###################################
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

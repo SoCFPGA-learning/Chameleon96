@@ -1,0 +1,49 @@
+	component soc_hps is
+		port (
+			clock_bridge_0_out_clk_clk       : out   std_logic;                                        -- clk
+			hps_0_h2f_loan_io_in             : out   std_logic_vector(66 downto 0);                    -- in
+			hps_0_h2f_loan_io_out            : in    std_logic_vector(66 downto 0) := (others => 'X'); -- out
+			hps_0_h2f_loan_io_oe             : in    std_logic_vector(66 downto 0) := (others => 'X'); -- oe
+			hps_io_hps_io_sdio_inst_CMD      : inout std_logic                     := 'X';             -- hps_io_sdio_inst_CMD
+			hps_io_hps_io_sdio_inst_D0       : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D0
+			hps_io_hps_io_sdio_inst_D1       : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D1
+			hps_io_hps_io_sdio_inst_CLK      : out   std_logic;                                        -- hps_io_sdio_inst_CLK
+			hps_io_hps_io_sdio_inst_D2       : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D2
+			hps_io_hps_io_sdio_inst_D3       : inout std_logic                     := 'X';             -- hps_io_sdio_inst_D3
+			hps_io_hps_io_uart0_inst_RX      : in    std_logic                     := 'X';             -- hps_io_uart0_inst_RX
+			hps_io_hps_io_uart0_inst_TX      : out   std_logic;                                        -- hps_io_uart0_inst_TX
+			hps_io_hps_io_gpio_inst_LOANIO14 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO14
+			hps_io_hps_io_gpio_inst_LOANIO17 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO17
+			hps_io_hps_io_gpio_inst_LOANIO19 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO19
+			hps_io_hps_io_gpio_inst_LOANIO22 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO22
+			hps_io_hps_io_gpio_inst_LOANIO23 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO23
+			hps_io_hps_io_gpio_inst_LOANIO25 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO25
+			hps_io_hps_io_gpio_inst_LOANIO27 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO27
+			hps_io_hps_io_gpio_inst_LOANIO28 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO28
+			hps_io_hps_io_gpio_inst_LOANIO29 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO29
+			hps_io_hps_io_gpio_inst_LOANIO30 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO30
+			hps_io_hps_io_gpio_inst_LOANIO32 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO32
+			hps_io_hps_io_gpio_inst_LOANIO33 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO33
+			hps_io_hps_io_gpio_inst_LOANIO34 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO34
+			hps_io_hps_io_gpio_inst_LOANIO48 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO48
+			hps_io_hps_io_gpio_inst_LOANIO53 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO53
+			hps_io_hps_io_gpio_inst_LOANIO54 : inout std_logic                     := 'X';             -- hps_io_gpio_inst_LOANIO54
+			memory_mem_a                     : out   std_logic_vector(14 downto 0);                    -- mem_a
+			memory_mem_ba                    : out   std_logic_vector(2 downto 0);                     -- mem_ba
+			memory_mem_ck                    : out   std_logic;                                        -- mem_ck
+			memory_mem_ck_n                  : out   std_logic;                                        -- mem_ck_n
+			memory_mem_cke                   : out   std_logic;                                        -- mem_cke
+			memory_mem_cs_n                  : out   std_logic;                                        -- mem_cs_n
+			memory_mem_ras_n                 : out   std_logic;                                        -- mem_ras_n
+			memory_mem_cas_n                 : out   std_logic;                                        -- mem_cas_n
+			memory_mem_we_n                  : out   std_logic;                                        -- mem_we_n
+			memory_mem_reset_n               : out   std_logic;                                        -- mem_reset_n
+			memory_mem_dq                    : inout std_logic_vector(15 downto 0) := (others => 'X'); -- mem_dq
+			memory_mem_dqs                   : inout std_logic_vector(1 downto 0)  := (others => 'X'); -- mem_dqs
+			memory_mem_dqs_n                 : inout std_logic_vector(1 downto 0)  := (others => 'X'); -- mem_dqs_n
+			memory_mem_odt                   : out   std_logic;                                        -- mem_odt
+			memory_mem_dm                    : out   std_logic_vector(1 downto 0);                     -- mem_dm
+			memory_oct_rzqin                 : in    std_logic                     := 'X'              -- oct_rzqin
+		);
+	end component soc_hps;
+

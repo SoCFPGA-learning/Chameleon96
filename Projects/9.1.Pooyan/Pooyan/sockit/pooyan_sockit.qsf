@@ -1,0 +1,372 @@
+# -------------------------------------------------------------------------- #
+#
+# Copyright (C) 2017  Intel Corporation. All rights reserved.
+# Your use of Intel Corporation's design tools, logic functions 
+# and other software and tools, and its AMPP partner logic 
+# functions, and any output files from any of the foregoing 
+# (including device programming or simulation files), and any 
+# associated documentation or information are expressly subject 
+# to the terms and conditions of the Intel Program License 
+# Subscription Agreement, the Intel Quartus Prime License Agreement,
+# the Intel FPGA IP License Agreement, or other applicable license
+# agreement, including, without limitation, that your use is for
+# the sole purpose of programming logic devices manufactured by
+# Intel and sold by Intel or its authorized distributors.  Please
+# refer to the applicable agreement for further details.
+#
+# -------------------------------------------------------------------------- #
+#
+# Quartus Prime
+# Version 17.1.0 Build 590 10/25/2017 SJ Lite Edition
+# Date created = 21:03:07  May 26, 2021
+#
+# -------------------------------------------------------------------------- #
+#
+# Notes:
+#
+# 1) The default values for assignments are stored in the file:
+#		tld_test_placa_deca_neptuno_assignment_defaults.qdf
+#    If this file doesn't exist, see file:
+#		assignment_defaults.qdf
+#
+# 2) Altera recommends that you do not modify this file. This
+#    file is updated automatically by the Quartus Prime software
+#    and any changes you make may be lost or overwritten.
+#
+# -------------------------------------------------------------------------- #
+
+set_global_assignment -name FAMILY "Cyclone V"
+set_global_assignment -name DEVICE 5CSXFC6D6F31C6
+set_global_assignment -name TOP_LEVEL_ENTITY pooyan_sockit
+set_global_assignment -name ORIGINAL_QUARTUS_VERSION 17.1.0
+set_global_assignment -name PROJECT_CREATION_TIME_DATE "21:43:57  JANUARY 08, 2021"
+set_global_assignment -name LAST_QUARTUS_VERSION "17.1.0 Lite Edition"
+set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
+set_global_assignment -name DEVICE_FILTER_PACKAGE FBGA
+set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
+set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
+set_global_assignment -name ERROR_CHECK_FREQUENCY_DIVISOR 256
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+
+set_global_assignment -name CYCLONEII_RESERVE_NCEO_AFTER_CONFIGURATION "USE AS REGULAR IO"
+set_global_assignment -name SMART_RECOMPILE ON
+set_global_assignment -name NUM_PARALLEL_PROCESSORS ALL
+set_global_assignment -name CYCLONEIII_CONFIGURATION_DEVICE AUTO
+
+#set_global_assignment -name STRATIX_DEVICE_IO_STANDARD "3.3-V LVTTL"
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_NEAR_END_VMEAS "HALF VCCIO" -fall
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -rise
+set_global_assignment -name OUTPUT_IO_TIMING_FAR_END_VMEAS "HALF SIGNAL SWING" -fall
+
+#set_global_assignment -name STRATIXV_CONFIGURATION_SCHEME "ACTIVE SERIAL X4"
+#set_global_assignment -name USE_CONFIGURATION_DEVICE ON
+#set_global_assignment -name CRC_ERROR_OPEN_DRAIN ON
+#set_global_assignment -name ACTIVE_SERIAL_CLOCK FREQ_100MHZ
+
+set_global_assignment -name GENERATE_SVF_FILE ON
+set_global_assignment -name GENERATE_RBF_FILE ON
+set_global_assignment -name ON_CHIP_BITSTREAM_DECOMPRESSION OFF
+#set_global_assignment -name SEED 1
+
+set_global_assignment -name OPTIMIZATION_MODE BALANCED
+set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE BALANCED
+#set_global_assignment -name OPTIMIZATION_MODE "AGGRESSIVE PERFORMANCE"
+#set_global_assignment -name CYCLONEII_OPTIMIZATION_TECHNIQUE SPEED
+
+
+###################################
+
+# clock
+set_location_assignment PIN_K14 -to OSC_50_B8A
+set_location_assignment PIN_Y26 -to OSC_50_B5B
+set_location_assignment PIN_AA16 -to OSC_50_B4A
+set_location_assignment PIN_AF14 -to OSC_50_B3B
+
+# key0 reset
+set_location_assignment PIN_AE9  -to KEY[0]
+set_location_assignment PIN_AE12 -to KEY[1]
+set_location_assignment PIN_AD9 -to KEY[2]
+set_location_assignment PIN_AD11 -to KEY[3]
+set_location_assignment PIN_AD27 -to RESET_n
+
+# LEDS
+set_location_assignment PIN_AF10 -to LED[0]
+set_location_assignment PIN_AD10 -to LED[1]
+set_location_assignment PIN_AE11 -to LED[2]
+set_location_assignment PIN_AD7 -to LED[3]
+
+#SWITCHES
+set_location_assignment PIN_W25 -to SW[0]
+set_location_assignment PIN_V25 -to SW[1]
+set_location_assignment PIN_AC28 -to SW[2]
+set_location_assignment PIN_AC29 -to SW[3]
+
+
+#============================================================
+# VGA
+#============================================================
+
+set_location_assignment PIN_AE28 -to VGA_B[0]
+set_location_assignment PIN_Y23 -to VGA_B[1]
+set_location_assignment PIN_Y24 -to VGA_B[2]
+set_location_assignment PIN_AG28 -to VGA_B[3]
+set_location_assignment PIN_AF28 -to VGA_B[4]
+set_location_assignment PIN_V23 -to VGA_B[5]
+set_location_assignment PIN_W24 -to VGA_B[6]
+set_location_assignment PIN_AF29 -to VGA_B[7]
+set_location_assignment PIN_Y21 -to VGA_G[0]
+set_location_assignment PIN_AA25 -to VGA_G[1]
+set_location_assignment PIN_AB26 -to VGA_G[2]
+set_location_assignment PIN_AB22 -to VGA_G[3]
+set_location_assignment PIN_AB23 -to VGA_G[4]
+set_location_assignment PIN_AA24 -to VGA_G[5]
+set_location_assignment PIN_AB25 -to VGA_G[6]
+set_location_assignment PIN_AE27 -to VGA_G[7]
+set_location_assignment PIN_AG5 -to VGA_R[0]
+set_location_assignment PIN_AA12 -to VGA_R[1]
+set_location_assignment PIN_AB12 -to VGA_R[2]
+set_location_assignment PIN_AF6 -to VGA_R[3]
+set_location_assignment PIN_AG6 -to VGA_R[4]
+set_location_assignment PIN_AJ2 -to VGA_R[5]
+set_location_assignment PIN_AH5 -to VGA_R[6]
+set_location_assignment PIN_AJ1 -to VGA_R[7]
+set_location_assignment PIN_AD12 -to VGA_HS
+set_location_assignment PIN_AC12 -to VGA_VS
+set_location_assignment PIN_AG2 -to VGA_SYNC_n
+set_location_assignment PIN_AH3 -to VGA_BLANK_n
+set_location_assignment PIN_W20 -to VGA_CLK
+
+#============================================================
+
+# KEYBOARD
+
+# assign GPIO0_D[4]  = PS2_KEYBOARD_CLK;  //HSMC_CLKIN_n1 PIN_AB27
+set_location_assignment PIN_AB27 -to ps2clk
+# assign GPIO0_D[5]  = PS2_KEYBOARD_DAT;  //HSMC_RX _n[7] PIN_F8 
+set_location_assignment PIN_F8 -to ps2dat
+
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ps2clk
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to ps2dat
+
+#============================================================
+
+# JOYSTICK 
+
+# assign GPIO0_D[10] = JOY1_B2_P9;        //HSMC_TX _p[7] PIN_C3
+set_location_assignment PIN_C3 -to JOY1_B2_P9
+# assign GPIO0_D[11] = JOY1_B1_P6;        //HSMC_RX _p[6] PIN_H8
+set_location_assignment PIN_H8 -to JOY1_B1_P6
+# assign GPIO0_D[12] = JOY1_UP;           //HSMC_TX _n[6] PIN_D4
+set_location_assignment PIN_D4 -to JOY1_UP
+# assign GPIO0_D[13] = JOY1_DOWN;         //HSMC_RX _n[5] PIN_H7
+set_location_assignment PIN_H7 -to JOY1_DOWN
+# assign GPIO0_D[16] = JOY1_LEFT;         //HSMC_TX _p[6] PIN_E4
+set_location_assignment PIN_E4 -to JOY1_LEFT
+# assign GPIO0_D[17] = JOY1_RIGHT;        //HSMC_RX _p[5] PIN_J7
+set_location_assignment PIN_J7 -to JOY1_RIGHT
+# assign GPIO0_D[18] = JOYX_SEL_O;        //HSMC_TX _n[5] PIN_E2
+set_location_assignment PIN_E2 -to JOYX_SEL_O
+
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_B2_P9
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_B1_P6
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_UP
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_DOWN
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_LEFT
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to JOY1_RIGHT
+
+#============================================================
+# SD CARD 
+
+# assign GPIO0_D[19] = PMOD1[0];          //HSMC_RX _n[4] PIN_K8
+set_location_assignment PIN_K8 -to PMOD1[0]
+# assign GPIO0_D[20] = PMOD1[1];          //HSMC_TX _p[5] PIN_E3
+set_location_assignment PIN_E3 -to PMOD1[1]
+# assign GPIO0_D[21] = PMOD1[2];          //HSMC_RX _p[4] PIN_K7
+set_location_assignment PIN_K7 -to PMOD1[2]
+# assign GPIO0_D[22] = PMOD1[3];          //HSMC_CLKOUT_n1  PIN_E6
+set_location_assignment PIN_E6 -to PMOD1[3]
+# assign GPIO0_D[23] = PMOD1[4];          //HSMC_RX _n[3] PIN_J9
+set_location_assignment PIN_J9 -to PMOD1[4]
+# assign GPIO0_D[24] = PMOD1[5];          //HSMC_CLKOUT_p1  PIN_E7
+set_location_assignment PIN_E7 -to PMOD1[5]
+# assign GPIO0_D[25] = PMOD1[6];          //HSMC_RX _p[3] PIN_J10
+set_location_assignment PIN_J10 -to PMOD1[6]
+# assign GPIO0_D[26] = PMOD1[7];          //HSMC_TX _n[4] PIN_C4
+set_location_assignment PIN_C4 -to PMOD1[7]
+
+#============================================================
+
+#MOUSE
+
+# assign GPIO0_D[6]  = PS2_MOUSE_CLK;     //HSMC_CLKIN_p1 PIN_AA26
+set_location_assignment PIN_AA26 -to PS2_MOUSE_CLK
+# assign GPIO0_D[7]  = PS2_MOUSE_DAT;     //HSMC_RX _p[7] PIN_F9
+set_location_assignment PIN_F9 -to PS2_MOUSE_DAT
+
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to PS2_MOUSE_CLK
+set_instance_assignment -name WEAK_PULL_UP_RESISTOR ON -to PS2_MOUSE_DAT
+
+#============================================================
+
+#UART
+
+# assign GPIO0_D[8]  = UART_RXD;          //HSMC_TX _n[7] PIN_B3
+set_location_assignment PIN_B3 -to UART_RXD
+# assign GPIO0_D[9]  = UART_TXD;          //HSMC_RX _n[6] PIN_G8
+set_location_assignment PIN_G8 -to UART_TXD
+
+
+#============================================================
+
+# Audio pwm output (P8:5,6 GPIO0_D02/03)   #(Atlas board: T12_left 1, 2 gnd, 3 R11_right)
+# set_location_assignment PIN_Y19 -to pwm_l
+# set_location_assignment PIN_AA17 -to pwm_r
+# set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to audio_pwm_l
+# set_instance_assignment -name CURRENT_STRENGTH_NEW "MAXIMUM CURRENT" -to audio_pwm_r
+
+#============================================================
+# AUDIO CODEC SSM2603
+#============================================================
+
+set_location_assignment PIN_AC27 -to AUD_ADCDAT
+set_location_assignment PIN_AG30 -to AUD_ADCLRCK
+set_location_assignment PIN_AE7  -to AUD_BCLK
+set_location_assignment PIN_AG3  -to AUD_DACDAT
+set_location_assignment PIN_AH4  -to AUD_DACLRCK
+set_location_assignment PIN_AH30 -to AUD_I2C_SCLK
+set_location_assignment PIN_AF30 -to AUD_I2C_SDAT
+set_location_assignment PIN_AD26 -to AUD_MUTE
+set_location_assignment PIN_AC9  -to AUD_XCK
+
+#============================================================
+
+set_instance_assignment -name IO_STANDARD "1.5 V" -to OSC_50_B3B
+set_instance_assignment -name IO_STANDARD "1.5 V" -to OSC_50_B4A
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OSC_50_B5B
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to OSC_50_B8A
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to LED[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to KEY[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET_n
+
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SW[0]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SW[1]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SW[2]
+set_instance_assignment -name IO_STANDARD "2.5 V" -to SW[3]
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_B1_P6
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_B2_P9
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_DOWN
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_LEFT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_RIGHT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOY1_UP
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to JOYX_SEL_O
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PMOD1[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_KEYBOARD_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_KEYBOARD_DAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_MOUSE_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to PS2_MOUSE_DAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to RESET
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to UART_RXD
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to UART_TXD
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_B[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_G[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[0]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[1]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[2]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[3]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[4]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[5]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[6]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_R[7]
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_BLANK_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_CLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_SYNC_n
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_HS
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to VGA_VS
+
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_ADCLRCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_BCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_DACLRCK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_I2C_SCLK
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_I2C_SDAT
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_MUTE
+set_instance_assignment -name IO_STANDARD "3.3-V LVTTL" -to AUD_XCK
+
+###################################
+
+set_global_assignment -name SDC_FILE pooyan_sockit.sdc
+set_global_assignment -name VHDL_FILE pooyan_sockit.vhd
+set_global_assignment -name VHDL_FILE max10_pll_12M_14M.vhd
+
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80s.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_Reg.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_MCode.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80_ALU.vhd
+set_global_assignment -name VHDL_FILE ../rtl_t80_350/T80.vhd
+set_global_assignment -name VHDL_FILE ../rtl_mikej/YM2149_linmix_sep.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/pooyan_sound_board.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/pooyan.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/kbd_joystick.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/io_ps2_keyboard.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/gen_ram.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/decodeur_7_seg.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_grphx2.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_grphx1.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_grphx2.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_grphx1.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sprite_color_lut.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_sound_prog.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_prog.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_palette.vhd
+set_global_assignment -name VHDL_FILE ../rtl_dar/proms/pooyan_char_color_lut.vhd
+
+set_global_assignment -name VERILOG_FILE vga_scandoubler.v
+
+set_global_assignment -name QIP_FILE rtl/pll/pll.qip
+
+set_global_assignment -name VERILOG_FILE rtl/I2C_Controller.v
+set_global_assignment -name VERILOG_FILE rtl/I2C_AV_Config.v
+set_global_assignment -name VERILOG_FILE rtl/audio_top.v
+set_global_assignment -name VERILOG_FILE rtl/audio_shifter.v
+
+###################################
+
+set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
+set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
+set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
+
+set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
